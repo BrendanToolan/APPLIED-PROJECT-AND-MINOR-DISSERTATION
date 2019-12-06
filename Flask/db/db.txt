@@ -1,0 +1,21 @@
+Drop database if exists bigproject;
+create database bigproject CHARACTER SET utf8 COLLATE UTF8_GENERAL_CI ;
+use bigproject
+show tables;
+Drop table if exists test;
+
+
+Use bigproject;
+
+create table test (
+	name varchar(10),
+	lastName varchar(10)
+	)Engine=InnoDB;
+
+    INSERT INTO test(name, lastName) VALUES
+    ('James', 'Nelly'),
+    ('Brendan', 'Toolan'),
+    ('Donald', 'Trump'),
+    ('Harry', 'Potter'),
+    ('Walter', 'White');
+    show warnings;
