@@ -1,0 +1,30 @@
+  
+Drop database if exists bigproject;
+create database bigproject CHARACTER SET utf8 COLLATE UTF8_GENERAL_CI ;
+use bigproject
+show tables;
+Drop table if exists test;
+Drop table if exists location;
+
+Use bigproject;
+
+create table location (
+	name varchar(10),
+    NumOfDrivers int(10),
+	picture_path varchar(20) DEFAULT NULL
+	)Engine=InnoDB;
+
+INSERT INTO location (name, NumOfDrivers, picture_path) VALUES
+	('Gort', 3, 'assets/1.jpg'),
+
+	('Loughrea', 7, 'assets/1.jpg'),
+
+    ('Athenry', 3, 'assets/1.jpg'),
+    
+    ('Tuam', 4, 'assets/1.jpg'),
+
+	('Oranmore', 6, 'assets/1.jpg'),
+
+	('Ballinsloe', 2, 'assets/1.jpg');
+	
+	show warnings;
