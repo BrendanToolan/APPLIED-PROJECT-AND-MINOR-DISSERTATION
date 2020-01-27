@@ -13,11 +13,24 @@
 .mat-flat-button.mat-primary
 {
     border-radius: 18px;
+    background-color: black;
+    color: lightgreen;
+    border: solid;
+    font-weight: bolder;
+}
+.mat-flat-button.mat-secondary
+{
+    border-radius: 18px;
+    color: red;
+    border: solid;
+    font-weight: bolder;
 }
 
 .mat-card
 {
-    width: 520px;
+    width: 253px;
+    display: inline-block;
+    margin: 20px;
 }
 .mat-card-image
 {
@@ -28,5 +41,6 @@
 .img
 {
     background-color: indigo;
-    margin: -15px;
+    padding: 20px;
+    margin-block-end: auto;
 }

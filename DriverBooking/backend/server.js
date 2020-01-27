@@ -6,6 +6,7 @@
     npm install mysql     : https://www.w3schools.com/nodejs/nodejs_mysql.asp
     npm install -g nodemon : https://nodemon.io/
     npm install @angular/material @angular/cdk @angular/animations --save
+    npm install @angular/flex-layout
 */
 
 const express = require('express');

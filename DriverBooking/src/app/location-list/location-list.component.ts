@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 
@@ -13,6 +12,10 @@ export class LocationListComponent implements OnInit {
   LocationData: any = [];
 
   constructor(private api: ApiService, private router: Router) { 
+  }
+
+  Instructor() {
+    this.router.navigate(['instructors']);
   }
 
     ngOnInit() {

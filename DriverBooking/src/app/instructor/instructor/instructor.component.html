@@ -1,0 +1,32 @@
+<div class= "img">
+    <!-- .img
+  {
+      background-image: url("https://www.thesun.ie/wp-content/uploads/sites/3/2017/12/10446218_929495147080132_6369999508714442045_ojpg-js373801070.jpg") !important;
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: 100%;
+  }-->
+  <mat-card class="example-card-two" *ngFor="let instructor of InstructorData">
+    <mat-card-header>
+      <mat-card-title>{{instructor.name}} {{instructor.lastName}} </mat-card-title>
+      <mat-card-subtitle>Galway</mat-card-subtitle>
+    </mat-card-header>
+  
+    <img mat-card-image src="{{instructor.picture_path}}">
+  
+    <mat-card-content>
+        <h4>Email {{instructor.Email}}</h4>
+  </mat-card-content>
+  
+    <div class= "button">
+    <button mat-flat-button color="primary">Make a booking</button>
+    </div>
+    <br>
+    <br>
+    <div class= "button1">
+    <button mat-flat-button color="secondary">Cancel a booking</button>
+    </div>
+    
+    
+  

@@ -1,14 +1,24 @@
+<div class= "img">
+  <!-- .img
+{
+    background-image: url("https://www.thesun.ie/wp-content/uploads/sites/3/2017/12/10446218_929495147080132_6369999508714442045_ojpg-js373801070.jpg") !important;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+}-->
 <mat-card class="example-card-two" *ngFor="let location of LocationData">
   <mat-card-header>
-   
+    <mat-card-title>{{location.name}}</mat-card-title>
+    <mat-card-subtitle>Galway</mat-card-subtitle>
   </mat-card-header>
 
+  <img mat-card-image src="{{location.picture_path}}">
+
   <mat-card-content>
-    
-      <h2>{{location.name}}</h2>
-      <br>
-      <img mat-card-image src="{{location.picture_path}}">
-      <br>
-      <h4>Instructor's : {{location.NumOfDrivers}}</h4>
-    
+      <h4>Instructor's in area: {{location.NumOfDrivers}}</h4>
 </mat-card-content>
+
+  <div class= "button">
+  <button mat-flat-button color="primary" (click) ="Instructor()">Instructor's</button>
+  </div>
