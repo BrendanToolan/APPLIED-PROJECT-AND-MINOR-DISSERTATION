@@ -13,6 +13,10 @@ import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatBu
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { InstructorComponent } from './instructor/instructor/instructor.component';
 import { LoginComponent } from './login/login.component';
+import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
+import { BookingComponent } from './booking/booking.component';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService} from '@syncfusion/ej2-angular-schedule';
+
 
 
 @NgModule({
@@ -21,7 +25,9 @@ import { LoginComponent } from './login/login.component';
     LocationListComponent,
     HeaderComponent,
     InstructorComponent,
-    LoginComponent
+    LoginComponent,
+    InstructorDetailsComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +42,11 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     MatGridListModule,
     FlexLayoutModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ScheduleModule, RecurrenceEditorModule
     
   ],
-  providers: [ApiService],
+  providers: [ApiService, DayService, WeekService, WorkWeekService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -39,4 +39,25 @@ router.get('/instructors', function (req, res) {
     });
 });
 
+var GortInstructor = {
+    getInstructorID: function (Id, callback) {
+        // run query
+        return sql.query('select * from instructor where Lid = 101', Id, callback);
+    }
+}
+
+router.get('/locations/:id', function (req, res) {
+    console.log("inside the backend get method");
+    GortInstructor.getInstructorID(req.params.Id, function (err, row) {
+        if (err) {
+            res.status(400).send(err);
+        }
+        else {
+            res.send(row.Id).status;
+            console.log(req.params);
+        }
+    });
+
+});
+
 module.exports = router;

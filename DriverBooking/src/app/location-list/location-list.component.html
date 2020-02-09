@@ -19,6 +19,8 @@
       <h4>Instructor's in area: {{location.NumOfDrivers}}</h4>
 </mat-card-content>
 
+<a [routerLink]="['/locations/:id', location.id]">instructs</a>
   <div class= "button">
-  <button mat-flat-button color="primary" (click) ="Instructor()">Instructor's</button>
+ <!-- <button mat-flat-button color="primary" (click) ="Instructor()">Instructor's</button>
+  <a [routerLink]="['/locations', locations.id]">Go to details</a>-->
   </div>

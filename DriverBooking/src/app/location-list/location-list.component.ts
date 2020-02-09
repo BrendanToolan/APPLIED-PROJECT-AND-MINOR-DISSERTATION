@@ -14,10 +14,6 @@ export class LocationListComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) { 
   }
 
-  Instructor() {
-    this.router.navigate(['instructors']);
-  }
-
     ngOnInit() {
       console.log('I AM RUNNING')
       this.api.getLocation().subscribe(data => {
