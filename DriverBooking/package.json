@@ -23,14 +23,15 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@syncfusion/ej2-angular-schedule": "^17.4.47",
+    "@syncfusion/ej2-material-theme": "~17.4.46",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "hammerjs": "^2.0.8",
     "mysql": "^2.17.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1",
-    "@syncfusion/ej2-material-theme": "~17.4.46"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.22",

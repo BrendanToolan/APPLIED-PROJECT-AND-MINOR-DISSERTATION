@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-location-list',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./location-list.component.css']
 })
 export class LocationListComponent implements OnInit {
+  
 
   LocationData: any = [];
 
@@ -15,10 +17,16 @@ export class LocationListComponent implements OnInit {
   }
 
     ngOnInit() {
-      console.log('I AM RUNNING')
+     this.getLocation();
+    }
+  getLocation(): void{
+    console.log('I AM RUNNING')
       this.api.getLocation().subscribe(data => {
       this.LocationData = data;
       console.log('Data recived from server.', this.LocationData);
-    });
+  });
+}
+  goId(){
+    this.router.navigate(['instructors/101']);
   }
 }

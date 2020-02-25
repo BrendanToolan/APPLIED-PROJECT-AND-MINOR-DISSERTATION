@@ -1,0 +1,46 @@
+.example-card-two
+{
+    max-width: fit-content;
+    margin: auto;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: bolder;
+    margin-top: 15px;
+    border: groove;
+    background-color: #3EABE7;
+}
+
+.mat-flat-button.mat-primary
+{
+    border-radius: 18px;
+    background-color: black;
+    color: lightgreen;
+    border: solid;
+    font-weight: bolder;
+}
+.mat-flat-button.mat-secondary
+{
+    border-radius: 18px;
+    color: red;
+    border: solid;
+    font-weight: bolder;
+}
+
+.mat-card
+{
+    width: 253px;
+    display: inline-block;
+    margin: 20px;
+}
+.mat-card-image
+{
+    width: calc(100% + 33px);
+    margin: 0 -16px 16px -16px;
+
+}
+.img
+{
+    background-color: indigo;
+    padding: 20px;
+    margin-block-end: auto;
+}

@@ -11,7 +11,7 @@ import { BookingComponent } from './booking/booking.component';
 const routes: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'locations', component: LocationListComponent},
-  {path: 'locations/:id', component: InstructorDetailsComponent},
+  {path: 'instructors/:id', component: InstructorDetailsComponent},
   {path: 'instructors', component: InstructorComponent},
   {path: 'booking', component: BookingComponent},
   {

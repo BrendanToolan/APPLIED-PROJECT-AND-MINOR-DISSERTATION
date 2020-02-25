@@ -11,16 +11,15 @@ import { from } from 'rxjs';
 export class InstructorComponent implements OnInit {
 
   InstructorData: any = [];
-  InstructorGort: any = [];
 
   constructor(private api: ApiService, private router: Router) { 
   }
 
   ngOnInit() {
     console.log('I AM RUNNING INSTRUCTOR');
-      this.api.getInstructor().subscribe(data => {this.InstructorData = data;
+      this.api.getInstructor().subscribe(data => {
+        this.InstructorData = data;
         console.log('Data recived from server.', this.InstructorData);
-      
       });
     }
   } 
