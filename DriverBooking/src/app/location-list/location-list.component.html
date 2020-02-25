@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
 }-->
-<mat-card class="example-card-two" *ngFor="let location of LocationData">
+<mat-card class="example-card-two" *ngFor="let location of LocationData; let i = index">
   <mat-card-header>
     <mat-card-title>{{location.name}}</mat-card-title>
     <mat-card-subtitle>Galway</mat-card-subtitle>
@@ -19,8 +19,10 @@
       <h4>Instructor's in area: {{location.NumOfDrivers}}</h4>
 </mat-card-content>
 
-<a class="nav_link" (click)="goId()">click for instructors<a>
-  <div class= "button">
+<a [routerLink]="['/instructors', location.Lid]">
+  instructors in this area.
+</a>
+<br>
  <!-- <button mat-flat-button color="primary" (click) ="Instructor()">Instructor's</button>
   <a [routerLink]="['/locations', locations.id]">Go to details</a>-->
-  </div>
+

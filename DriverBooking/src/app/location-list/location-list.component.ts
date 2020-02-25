@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-location-list',
@@ -13,7 +12,7 @@ export class LocationListComponent implements OnInit {
 
   LocationData: any = [];
 
-  constructor(private api: ApiService, private router: Router) { 
+  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) { 
   }
 
     ngOnInit() {
@@ -28,5 +27,9 @@ export class LocationListComponent implements OnInit {
 }
   goId(){
     this.router.navigate(['instructors/101']);
+  }
+
+  goId2(){
+    this.router.navigate(['instructors/102']);
   }
 }
