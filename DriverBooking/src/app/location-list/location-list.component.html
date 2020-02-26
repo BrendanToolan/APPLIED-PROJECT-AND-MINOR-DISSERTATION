@@ -7,7 +7,10 @@
     width: 100%;
     height: 100%;
 }-->
-<mat-card class="example-card-two" *ngFor="let location of LocationData; let i = index">
+<div class="search-hero">
+    <input class="form-control" autocomplete="off" placeholder=";  Start searching location">
+  </div>
+<mat-card class="example-card-two" *ngFor="let location of LocationData">
   <mat-card-header>
     <mat-card-title>{{location.name}}</mat-card-title>
     <mat-card-subtitle>Galway</mat-card-subtitle>
@@ -16,12 +19,11 @@
   <img mat-card-image src="{{location.picture_path}}">
 
   <mat-card-content>
-      <h4>Instructor's in area: {{location.NumOfDrivers}}</h4>
+      <h4>Instructor's in area {{location.NumOfDrivers}}</h4>
 </mat-card-content>
 
-<a [routerLink]="['/instructors', location.Lid]">
-  instructors in this area.
-</a>
+<a mat-flat-button color="primary" [routerLink]="['/instructors', location.Lid]">view instructors</a>
+
 <br>
  <!-- <button mat-flat-button color="primary" (click) ="Instructor()">Instructor's</button>
   <a [routerLink]="['/locations', locations.id]">Go to details</a>-->

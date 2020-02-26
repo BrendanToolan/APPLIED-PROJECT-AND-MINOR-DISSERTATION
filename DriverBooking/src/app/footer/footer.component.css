@@ -1,0 +1,12 @@
+.footer{
+    background-color: black;
+    margin: 15px;
+    margin: unset;
+}
+
+.ListOf{
+    text-align: center;
+    font-weight: bolder;
+    color: burlywood;
+    font-size: medium;
+}

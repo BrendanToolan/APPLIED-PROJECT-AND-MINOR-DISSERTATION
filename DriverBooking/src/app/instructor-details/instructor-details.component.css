@@ -7,7 +7,7 @@
     font-weight: bolder;
     margin-top: 15px;
     border: groove;
-    background-color: #3EABE7;
+    background-color:black;
 }
 
 .mat-flat-button.mat-primary
@@ -40,7 +40,7 @@
 }
 .img
 {
-    background-color: indigo;
+    background-color: darkslategrey;
     padding: 20px;
     margin-block-end: auto;
 }

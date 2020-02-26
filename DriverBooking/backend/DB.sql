@@ -5,6 +5,7 @@ use bigproject
 show tables;
 Drop table if exists location;
 Drop table if exists instructor;
+Drop table if exists booking;
 
 Use bigproject;
 
@@ -62,5 +63,14 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 	(106, 'John', 'Rogers', 087006726, 'JohnRogers@gmail.com','assets/inst22.jpg'),
 	(106, 'Aaron', 'Evans', 08703486, 'AaronEvans@gmail.com','assets/inst23.jpg'),
 	(106, 'Brad', 'White', 0870154467, 'BradWhite@gmail.com','assets/inst24.jpg');
+
+
+	create table booking (
+	Lid int(10),
+	title varchar(15),
+	StartTime DATETIME,
+	EndTime DATETIME,
+	IsAllDay BOOLEAN
+	)Engine=InnoDB;
 
 	show warnings;

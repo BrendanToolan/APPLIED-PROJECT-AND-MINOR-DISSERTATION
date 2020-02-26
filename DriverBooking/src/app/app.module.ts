@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 import { BookingComponent } from './booking/booking.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService} from '@syncfusion/ej2-angular-schedule';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -27,7 +28,8 @@ import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWe
     InstructorComponent,
     LoginComponent,
     InstructorDetailsComponent,
-    BookingComponent
+    BookingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
