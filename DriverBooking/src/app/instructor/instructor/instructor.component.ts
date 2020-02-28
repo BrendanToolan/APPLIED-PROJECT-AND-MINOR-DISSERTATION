@@ -11,6 +11,7 @@ import { from } from 'rxjs';
 export class InstructorComponent implements OnInit {
 
   InstructorData: any = [];
+  name: string;
 
   constructor(private api: ApiService, private router: Router) { 
   }
@@ -22,4 +23,14 @@ export class InstructorComponent implements OnInit {
         console.log('Data recived from server.', this.InstructorData);
       });
     }
+    Search(){
+      if(this.name != ""){
+         this.InstructorData = this.InstructorData.filter(res =>{
+        return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+      });
+    }
+    else if (this.name == ""){
+      this.ngOnInit();
+    }
+  }
   } 

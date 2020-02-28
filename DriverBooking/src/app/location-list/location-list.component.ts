@@ -11,6 +11,7 @@ export class LocationListComponent implements OnInit {
   
 
   LocationData: any = [];
+  name : string;
 
   constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) { 
   }
@@ -25,11 +26,14 @@ export class LocationListComponent implements OnInit {
       console.log('Data recived from server.', this.LocationData);
   });
 }
-  goId(){
-    this.router.navigate(['instructors/101']);
+  Search(){
+    if(this.name != ""){
+       this.LocationData = this.LocationData.filter(res =>{
+      return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+    });
   }
-
-  goId2(){
-    this.router.navigate(['instructors/102']);
+  else if (this.name == ""){
+    this.ngOnInit();
   }
+}
 }

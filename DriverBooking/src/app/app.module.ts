@@ -17,6 +17,8 @@ import { InstructorDetailsComponent } from './instructor-details/instructor-deta
 import { BookingComponent } from './booking/booking.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService} from '@syncfusion/ej2-angular-schedule';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { from } from 'rxjs';
 
 
 
@@ -45,7 +47,8 @@ import { FooterComponent } from './footer/footer.component';
     MatGridListModule,
     FlexLayoutModule,
     MatFormFieldModule,
-    ScheduleModule, RecurrenceEditorModule
+    ScheduleModule, RecurrenceEditorModule,
+    FormsModule
     
   ],
   providers: [ApiService, DayService, WeekService, WorkWeekService],
