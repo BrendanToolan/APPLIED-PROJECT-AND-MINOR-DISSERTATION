@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
   import { from } from 'rxjs';
 import { BookingComponent } from './booking/booking.component';
+import { RegisterPageComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'instructors/:id', component: InstructorDetailsComponent},
   {path: 'instructors', component: InstructorComponent},
   {path: 'booking', component: BookingComponent},
+  {path: 'register', component: RegisterPageComponent },
   {
    path: '',
    redirectTo: 'Login',
@@ -39,6 +41,11 @@ const routes: Routes = [
     redirectTo: 'booking',
     pathMatch: 'full'
    },
+   {
+    path: '',
+    redirectTo: 'register',
+    pathMatch: 'full'
+   }
 ];
 
 @NgModule({

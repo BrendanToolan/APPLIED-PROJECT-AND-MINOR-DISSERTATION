@@ -49,4 +49,25 @@ router.get('/instructors/:id', (req,res) => {
     })
 });
 
+var Register = {
+    getReg: function (callback) {
+        return sql.query('select * from users', callback);
+
+    }
+}
+
+router.post('/register', (req, res) => {
+    let userData = req.body;
+    console.log(userData);
+    var name = userData.name;
+    var surname = userData.surname;
+    var email = userData.email;
+    var address = userData.address;
+    var number = userData.number;
+    var password = userData.password;
+
+    var sql = "INSERT INTO users ( name, surname, email, address, phoneNum, password) VALUES ( '"+name+"', '"+surname+"', '"+email+"', '"+address+"', '"+number+"', '"+password+"')";
+    
+})
+
 module.exports = router;
