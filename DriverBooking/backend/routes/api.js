@@ -49,4 +49,32 @@ router.get('/instructors/:id', (req,res) => {
     })
 });
 
+router.post('/booking', (req, res) => {
+    
+  //  var post = {
+  //      Lid: 102, 
+  //      fname: 'tu',
+  //      lname: 'ui',
+  //      email: 'fdhgjh'
+  //  };
+
+
+     var Lid = req.body.Lid;
+     //fname = req.body;
+     //lname = req.body;
+     //email = req.body;
+    
+    
+    //  var start_at = req.body.start_at;
+    // var end_at = req.body.end_at;
+
+
+     sql.query `INSERT INTO booking (Lid)'Values ("${Lid}", NOW())`;
+          if(!err)
+    res.send(result);
+    else
+    console.log(err);
+    
+    });
+
 module.exports = router;

@@ -15,9 +15,9 @@ import { InstructorComponent } from './instructor/instructor/instructor.componen
 import { LoginComponent } from './login/login.component';
 import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 import { BookingComponent } from './booking/booking.component';
-import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService} from '@syncfusion/ej2-angular-schedule';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { from } from 'rxjs';
 
 
@@ -47,11 +47,11 @@ import { from } from 'rxjs';
     MatGridListModule,
     FlexLayoutModule,
     MatFormFieldModule,
-    ScheduleModule, RecurrenceEditorModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule
     
   ],
-  providers: [ApiService, DayService, WeekService, WorkWeekService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
