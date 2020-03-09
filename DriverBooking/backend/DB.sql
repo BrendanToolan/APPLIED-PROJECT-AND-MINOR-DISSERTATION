@@ -74,5 +74,15 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 
 		INSERT INTO booking (Lid, fname, lname, email) VALUES
 		(101, 'John', 'erer', 'sfsfd');
+		
+	create table users(
+		Lid int(10), 
+		name varchar(10), 
+		surname varchar(20), 
+		email varchar(25), 
+		address varchar(30), 
+		phoneNum int(10), 
+		password varchar(15) 
+		)Engine=InnoDB;
 
 	show warnings;

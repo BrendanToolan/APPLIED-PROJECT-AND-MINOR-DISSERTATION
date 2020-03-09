@@ -26,6 +26,10 @@ export class ApiService {
     //return this.http.get(this.GoogleVM + '/api/accom', {withCredentials: true});
   }
 
+  getReg(): Observable<any> {
+    return this.http.post('http://localhost:8081/api/users', HttpClient);
+  }
+
   // getInstructor(): Observable<any> {
   // return this.http.get(this.Url + 'instructors');
   //return this.http.get(this.GoogleVM + '/api/accom', {withCredentials: true});

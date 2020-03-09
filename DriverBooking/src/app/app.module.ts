@@ -19,7 +19,10 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { from } from 'rxjs';
-
+import { RegisterPageComponent } from './register/register.component';
+//import { AuthGuard } from './auth-guard/auth-guard.component';
+import { AuthService } from './services/auth.service';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { from } from 'rxjs';
     LoginComponent,
     InstructorDetailsComponent,
     BookingComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterPageComponent
+    //AuthGuard
   ],
   imports: [
     BrowserModule,
