@@ -7,22 +7,25 @@ import { AppComponent } from './app.component';
 import { LocationListComponent } from './location-list/location-list.component';
 import { ApiService } from './services/api.service';
 import { HeaderComponent } from './navigation/header/header.component';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule, MatFormFieldModule} from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { InstructorComponent } from './instructor/instructor/instructor.component';
+import { RegisterPageComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 import { BookingComponent } from './booking/booking.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { from } from 'rxjs';
-import { RegisterPageComponent } from './register/register.component';
+import { InstructorComponent } from './instructor/instructor/instructor.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule, MatFormFieldModule} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+//import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+//import { AlertsModule } from 'angular-alert-module';
+
+
 //import { AuthGuard } from './auth-guard/auth-guard.component';
-import { AuthService } from './services/auth.service';
-import { TokenInterceptorService } from './services/token-interceptor.service';
+//import { AuthService } from './services/auth.service';
+//import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -53,7 +56,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     FlexLayoutModule,
     MatFormFieldModule,
     FormsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ReactiveFormsModule
+    //AlertsModule.forRoot(),
     
   ],
   providers: [ApiService],

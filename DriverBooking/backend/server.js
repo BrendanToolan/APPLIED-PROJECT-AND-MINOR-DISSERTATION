@@ -7,6 +7,7 @@
     npm install -g nodemon : https://nodemon.io/
     npm install @angular/material @angular/cdk @angular/animations --save
     npm install @angular/flex-layout
+    npm install express-session
 */
 
 const express = require('express');
@@ -70,6 +71,7 @@ app.post('/register', (req, res) => {
 
 //login
 ////prevous error occured when I used router instead of app
+/*
 app.post('/Login', (req, res) => {
     let userData = req.body
 
@@ -90,6 +92,7 @@ app.post('/Login', (req, res) => {
         }
     })
 })
+*/
 
 
 //Use api routes from the class created

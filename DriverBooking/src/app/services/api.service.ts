@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { User } from '../model/user';
+
 import { $ } from 'protractor';
-import { Data } from '@syncfusion/ej2-schedule/src/schedule/actions/data';
 
 @Injectable({
   providedIn: 'root'
@@ -26,18 +27,12 @@ export class ApiService {
     //return this.http.get(this.GoogleVM + '/api/accom', {withCredentials: true});
   }
 
-  getReg(): Observable<any> {
-    return this.http.post('http://localhost:8081/api/users', HttpClient);
-  }
-
-  // getInstructor(): Observable<any> {
-  // return this.http.get(this.Url + 'instructors');
-  //return this.http.get(this.GoogleVM + '/api/accom', {withCredentials: true});
-  //}
+  registerUser(user: User) {
+    // debugger
+    return this.http.post<User>(this.Url + 'register', user);
+   }
 
   get(id: string) {
-    //let data = JSON.stringify({'id':InstructorId})
-   // console.log(`${this.Url + 'instructors'}/${InstructorId}`);
    // return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
    return this.http.get(`${this.Url +'instructors'}/${id}`);
   }

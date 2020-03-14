@@ -2,6 +2,11 @@ let express = require('express');
 let router = express.Router();
 let sql = require('../config/config.js');
 
+var connection = require('../config/config.js');
+var bodyParser = require('body-parser');
+
+router.use(bodyParser.json());
+
 //Class for all routers
 
 var Location = {
@@ -74,27 +79,60 @@ router.post('/booking', (req, res) => {
     res.send(result);
     else
     console.log(err);
+
+    ///////////////////////////////
     
     });
-var Register = {
-    getReg: function (callback) {
-        return sql.query('select * from users', callback);
-
-    }
-}
 
 router.post('/register', (req, res) => {
     let userData = req.body;
     console.log(userData);
-    var name = userData.name;
-    var surname = userData.surname;
-    var email = userData.email;
-    var address = userData.address;
-    var number = userData.number;
-    var password = userData.password;
+    var firstname = userData[0].firstname;
+    var lastName = userData[0].lastname;
+    var email = userData[0].email;
+    var phoneNum = userData[0].phonenum;
+    var userName = userData[0].username;
+    var password = userData[0].password;
+    // var sql = "INSERT INTO users ( username, password) VALUES ( '"+ (userName) +"', '"+ password +"' )";
+    var sql = `INSERT INTO users (firstname, lastname, email, phonenum, username, password ) VALUES ('${firstname}', '${lastName}', '${email}', '${phoneNum}', '${userName}', '${password}')`;
 
-    var sql = "INSERT INTO users ( name, surname, email, address, phoneNum, password) VALUES ( '"+name+"', '"+surname+"', '"+email+"', '"+address+"', '"+number+"', '"+password+"')";
-    
-})
+    connection.query( sql , (err, rows, fields) => {       
+      if (err) {
+        console.log(err);
+        return res.status(500).send( {'error' :'Sorry username does not exits'} );   
+      } else {
+        // let payload = {subject: registered.User._id}
+        // let token = jwt.sign(payload, 'secretKey')
+        // res.status(200).send({token})
+        console.log(sql);
+        return res.status(200).send( {'success' :'login successful '} );
+      }
+    })
+  });
+  
+/*
+router.post('/Login', (req, res) => {
+    let userData = req.body;
+    var userName  = userData[0].userName;
+    var Password = userData[0].password;
+    console.log(userData);
+    connection.query('SELECT * FROM users WHERE username = ?',[userName], (err, rows, fields) => {
+        if (err) {
+          console.log(err);
 
+          return res.status(500).send( {'error' :'Sorry username does not exits'} );    
+        }else {
+            if (rows.length >0) {
+              if ( rows[0].password == Password) {  
+                return res.status(200).send( {'success' :'login successful '} );
+              } else {
+                  return res.status(401).send({ 'error': 'Invalid Password' });  
+              }
+            } else{
+                return res.status(404).send('Sorry username does not exits yeet!!!!');     
+            }   
+          }
+        });
+      });
+*/
 module.exports = router;
