@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ApiService } from '../services/api.service';
-import { queryParams } from '@syncfusion/ej2-base';
 import { instructor } from '../model/instructor';
 
 @Component({

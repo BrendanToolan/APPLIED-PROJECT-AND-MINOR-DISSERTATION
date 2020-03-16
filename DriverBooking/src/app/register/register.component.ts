@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service'
+import { FormsModule, FormControl, FormBuilder, FormGroup, FormArray,  Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { User } from '../model/user';
+
+//import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-register',
@@ -10,17 +13,13 @@ import { ApiService } from 'src/app/services/api.service'
 })
 export class RegisterPageComponent implements OnInit {
 
-  userData = {}
-  constructor(private api: ApiService, private _auth: AuthService, private _router: Router) { }
+  registerForm: FormGroup;
+  checkForm: FormGroup;
+  
+  constructor(private router: Router, private Api: ApiService) {
 
-  ngOnInit() {
-    console.log('I am Running Reg')
-    this.api.getReg().subscribe(data => {
-    this.userData = data;
-    console.log('Data received from server.', this.userData);
-    });
-  }
 
+<<<<<<< HEAD
   /*regUser() {
     this._auth.regUser(this.userData)
       .subscribe(
@@ -32,5 +31,26 @@ export class RegisterPageComponent implements OnInit {
         err => console.log(err)
       )
   }*/
+=======
+  }
+>>>>>>> aa7bd9b4df09538572ca955ddb3b6ada4d44f476
 
+  ngOnInit() {
+    
+} 
+
+SubmitForm(FormData) : void {
+  console.log(FormData);
+  this.Api.registerUser( FormData ).subscribe((res) => {
+   
+     
+     console.log(res);
+     this.router.navigateByUrl('/Login');
+  },
+    err => {
+      console.log(err);
+       //this.alerts.setMessage ('Registration in-complete', 'error');
+    }
+  );
+}
 }

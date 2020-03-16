@@ -7,16 +7,12 @@ import { AppComponent } from './app.component';
 import { LocationListComponent } from './location-list/location-list.component';
 import { ApiService } from './services/api.service';
 import { HeaderComponent } from './navigation/header/header.component';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule, MatFormFieldModule} from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { InstructorComponent } from './instructor/instructor/instructor.component';
+import { RegisterPageComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 import { BookingComponent } from './booking/booking.component';
-import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService} from '@syncfusion/ej2-angular-schedule';
 import { FooterComponent } from './footer/footer.component';
+<<<<<<< HEAD
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 import { RegisterPageComponent } from './register/register.component';
@@ -29,6 +25,23 @@ import { ErrorInterceptor } from 'src/app/auth-guard/error.interceptor';
 import { FakeBackendInterceptor, fakeBackendProvider } from 'src/app/auth-guard/fake.backend';
 import { AlertsModule } from 'angular-alert-module';
 import { LayoutModule } from '@angular/cdk/layout';
+=======
+import { InstructorComponent } from './instructor/instructor/instructor.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule, MatFormFieldModule} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+//import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+//import { AlertsModule } from 'angular-alert-module';
+
+
+//import { AuthGuard } from './auth-guard/auth-guard.component';
+//import { AuthService } from './services/auth.service';
+//import { TokenInterceptorService } from './services/token-interceptor.service';
+
+>>>>>>> aa7bd9b4df09538572ca955ddb3b6ada4d44f476
 
 @NgModule({
   declarations: [
@@ -58,6 +71,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     FlexLayoutModule,
     MatFormFieldModule,
+<<<<<<< HEAD
     ScheduleModule, RecurrenceEditorModule,
     FormsModule,
     ReactiveFormsModule,
@@ -70,6 +84,15 @@ import { LayoutModule } from '@angular/cdk/layout';
   
     fakeBackendProvider
   ],
+=======
+    FormsModule,
+    MatDatepickerModule,
+    ReactiveFormsModule
+    //AlertsModule.forRoot(),
+    
+  ],
+  providers: [ApiService],
+>>>>>>> aa7bd9b4df09538572ca955ddb3b6ada4d44f476
   bootstrap: [AppComponent]
 })
 export class AppModule { }
