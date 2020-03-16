@@ -6,7 +6,7 @@ let connection = mysql.createConnection({
     host: 'localhost',
     // MySQL user + database
     user: 'root',
-    password: '',
+  //  password: '',
     password: 'RumH@m96',
     database: 'bigproject'
 });

@@ -27,7 +27,7 @@ export class ApiService {
   }
 
   getReg(): Observable<any> {
-    return this.http.post('http://localhost:8081/api/users', HttpClient);
+    return this.http.post(this.Url + 'users', HttpClient);
   }
 
   // getInstructor(): Observable<any> {

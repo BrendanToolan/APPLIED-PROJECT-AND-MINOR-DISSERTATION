@@ -1,42 +1,89 @@
-<div class="row pt-5">
-  <div class="col-md=-6 mx-auto">
-    <div class="card rounded-0">
-      <h3 class="mb-0">LogIn Page</h3>
-    </div>
-    <div class="card-body">
-      <form class="form">
-        <div class="form-group">
-          <label for="">Email</label>
-          <input [(ngModel)]="UserData.email" name="email" type="text" class="form-control rounded-0" required>
+<!--<app-layout> </app-layout>
+-->
+<div style=" padding-bottom: 200px; margin-bottom: 15px;" class="container-fluid" >
+  <div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h2>Login</h2>
+    <form  [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" >
+      <!-- personal info -->
+      <div class="row" >
+          <div class="col">
+              <div class="form-group">
+              <label for="fnText">user Name</label>
+              <input type="text" class="form-control" formControlName="username" id="username" name="username" placeholder="Enter user name"
+              [ngClass]="{'form-control': true,
+                  'is-invalid': !f.username.valid && f.username.touched,
+                  'is-valid':f.username.valid}" >
+              <span *ngIf="f.username.errors?.required && f.username.touched" class="text-danger" >Field is required</span>
+              <div *ngIf="f.username.errors?.minlength && f.username.touched" class="text-danger" >Name should be at least 4 characters.</div>
+              </div>
+          </div>
+      </div>
+
+          <!-- password info -->
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                <label for="pass">Password</label>
+                <input type="text" class="form-control" formControlName="password" id="password" name="password" placeholder="Enter password"
+                [ngClass]="{'form-control': true,
+                    'is-invalid': !f.password.valid && f.password.touched,
+                    'is-valid': f.password.valid}" >
+                <small *ngIf="f.password.errors?.required && f.password.touched" class="text-danger" >Field is required</small>
+                <small *ngIf="f.password.errors?.minlength && f.password.touched" class="text-danger" >Name should be at least 4 characters.</small>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="">Password</label>
-          <input [(ngModel)]="UserData.password" name="password" type="password" class="form-control rounded-0" required>
+  
+      <!-- seperator -->
+      <div class="row">
+        <div class="col"> <hr>
         </div>
-        <button (click)="loginUser()" type="button" class="btn btn-success float-right">Login</button>
-      </form>
-    </div>
+      </div>
+
+      <!-- final action buttons -->
+      <div class="row">
+          <button type="submit" [disabled]="!loginForm.valid"  class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-warning">Reset</button>
+          <button type="button" class="btn btn-danger" routerLinkActive="active" routerLink="/register">Register</button> 
+      </div>
+      
+    </form>
+  </div>
   </div>
 </div>
 
+<app-alerts> </app-alerts>
 
-
-
-<!-- <div class="help">
- <div class="login">
-    <form>
-        <br>
-        <br>
-        <br>
-        <br>
-        <input type="Password" placeholder="Password" formControlName="Password">
-        <br>
-        <input type="Email" placeholder="Email" formControlName="Email">
-        <br>
-        <button (click)="loginUser()" type="button" class="btn btn-success float-right">Login</button>
-        <br>
-        <input type="submit" value="Register">
-    </form>
-  </div>
-</div>-->
-
+<!-- <div class="col-md-6 offset-md-3 mt-5">
+    <div class="alert alert-info">
+        Username: test<br />
+        Password: test
+    </div>
+    <div class="card">
+        <h4 class="card-header">Angular 8 JWT Login Example</h4>
+        <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div> -->

@@ -74,6 +74,7 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 
 	create table users(
 		Lid int(10), 
+		username varchar(10),
 		name varchar(10), 
 		surname varchar(20), 
 		email varchar(25), 

@@ -9,10 +9,13 @@
     npm install @angular/flex-layout
 */
 
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const api = require('./routes/api');
 const app = express();
+
+
 
 //Parser content to JSON !!!!!!!!!!!!!!!!!!!!!
 app.use(bodyParser.json());
@@ -73,7 +76,7 @@ app.post('/register', (req, res) => {
 app.post('/Login', (req, res) => {
     let userData = req.body
 
-    User.findOne({email: userData.email}, (error, user) => {
+    User.findOne({userName: userData.userName}, (error, user) => {
         if (error) {
             console.log(error)
         } else {

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,13 +17,18 @@ import { InstructorDetailsComponent } from './instructor-details/instructor-deta
 import { BookingComponent } from './booking/booking.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService} from '@syncfusion/ej2-angular-schedule';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 import { RegisterPageComponent } from './register/register.component';
 //import { AuthGuard } from './auth-guard/auth-guard.component';
 import { AuthService } from './services/auth.service';
-import { TokenInterceptorService } from './services/token-interceptor.service';
-
+//import { TokenInterceptorService } from './services/token-interceptor.service';
+import { HomeComponent } from './home/home.component';
+import { JwtInterceptor } from 'src/app/auth-guard/jwt.interceptor';
+import { ErrorInterceptor } from 'src/app/auth-guard/error.interceptor';
+import { FakeBackendInterceptor, fakeBackendProvider } from 'src/app/auth-guard/fake.backend';
+import { AlertsModule } from 'angular-alert-module';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     InstructorDetailsComponent,
     BookingComponent,
     FooterComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    HomeComponent
     //AuthGuard
   ],
   imports: [
@@ -53,10 +59,17 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     FlexLayoutModule,
     MatFormFieldModule,
     ScheduleModule, RecurrenceEditorModule,
-    FormsModule
-    
+    FormsModule,
+    ReactiveFormsModule,
+    AlertsModule.forRoot(),
+    LayoutModule
   ],
-  providers: [ApiService, DayService, WeekService, WorkWeekService],
+  providers: [ApiService, DayService, WeekService, WorkWeekService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

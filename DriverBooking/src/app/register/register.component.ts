@@ -21,7 +21,7 @@ export class RegisterPageComponent implements OnInit {
     });
   }
 
-  regUser() {
+  /*regUser() {
     this._auth.regUser(this.userData)
       .subscribe(
         res => {
@@ -29,8 +29,8 @@ export class RegisterPageComponent implements OnInit {
           localStorage.setItem('token', res.token)
           this._router.navigate(['/location'])
         },
-       // err => console.log(err)
+        err => console.log(err)
       )
-  }
+  }*/
 
 }

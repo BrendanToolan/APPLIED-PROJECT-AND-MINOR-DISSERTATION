@@ -7,10 +7,14 @@ import { InstructorDetailsComponent } from './instructor-details/instructor-deta
   import { from } from 'rxjs';
 import { BookingComponent } from './booking/booking.component';
 import { RegisterPageComponent } from './register/register.component';
+//import { AuthGuard } from './auth-guard/auth-guard.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
+ // {path: '', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
+  //{path: '**', redirectTo: ''},
   {path: 'locations', component: LocationListComponent},
   {path: 'instructors/:id', component: InstructorDetailsComponent},
   {path: 'instructors', component: InstructorComponent},
@@ -47,6 +51,8 @@ const routes: Routes = [
     pathMatch: 'full'
    }
 ];
+
+export const appRoutingModule = RouterModule.forRoot(routes);
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
