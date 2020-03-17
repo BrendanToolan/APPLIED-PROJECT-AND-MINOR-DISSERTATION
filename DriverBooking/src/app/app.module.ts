@@ -20,6 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AuthService } from './services/auth.service';
 //import { AlertsModule } from 'angular-alert-module';
 
 
@@ -61,7 +62,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     //AlertsModule.forRoot(),
     
   ],
-  providers: [ApiService],
+  providers: [ApiService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

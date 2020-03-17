@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service'
-import { FormsModule, FormControl, FormBuilder, FormGroup, FormArray,  Validators, ValidatorFn, AbstractControl } from '@angular/forms';
-import { User } from '../model/user';
+import { AuthService } from '../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 //import { AlertsService } from 'angular-alert-module';
 
@@ -13,30 +14,39 @@ import { User } from '../model/user';
 })
 export class RegisterPageComponent implements OnInit {
 
-  registerForm: FormGroup;
-  checkForm: FormGroup;
-  
-  constructor(private router: Router, private Api: ApiService) {
+  private errorMessage;
 
+
+  
+  constructor(private auth: AuthService, private router: Router) {
 
   }
 
+  setErrorMessage(error: String) {
+    this.errorMessage = error;
+}
+
+getErrorMessage() {
+    return this.errorMessage;
+}
+
+
   ngOnInit() {
     
-} 
-
-SubmitForm(FormData) : void {
-  console.log(FormData);
-  this.Api.registerUser( FormData ).subscribe((res) => {
-   
-     
-     console.log(res);
-     this.router.navigateByUrl('/Login');
-  },
-    err => {
-      console.log(err);
-       //this.alerts.setMessage ('Registration in-complete', 'error');
-    }
-  );
 }
+registerUser(form: NgForm) {
+  // TO-DO Validation to be added
+  // Push data to api => to be pushed to database.
+  this.auth.registerUser(form.value.username, form.value.password).subscribe(data => {
+      if (data) {
+          // user registered, now run login page.
+          this.router.navigate(['/Login']);
+      } else if (data.username === 'ER_DUP_ENTRY') {
+          this.setErrorMessage('This Student ID number already exists in the databases, please try another one');
+      } 
+  });
+  console.log(form.value);
+  form.resetForm(); // Reset the form
+}// E
+
 }

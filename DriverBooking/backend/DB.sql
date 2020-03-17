@@ -77,15 +77,11 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 		(101, 'John', 'erer', 'sfsfd');
 		
 	create table users(
-		firstname varchar(20),
-		lastname varchar(20),
-		email varchar(30),
-		phonenum int(10),
 		username varchar(10),
 		password varchar(20)
 		)Engine=InnoDB;
 
-		INSERT INTO users (firstname, lastname, email, phonenum, username, password) VALUES 
-		('james', 'nelly', 'yo@gmail.com', 123456789, 'test', 'test');
+		INSERT INTO users (username, password) VALUES 
+		('test', 'test');
 
 	show warnings;

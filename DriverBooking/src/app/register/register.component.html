@@ -1,24 +1,29 @@
-<div class="conatiner">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <form>
-                <div class="form-group">
-                    <label>Enter name:</label>
-                    <input type="text"  name="name" class="form-control" autocomplete="off" />
-                </div>
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
 
-                <div class="form-group">
-                    <label>Enter Last Name:</label>
-                    <input type="text"  name="name" class="form-control" autocomplete="off" />
-                </div>
 
-                <div class="form-group">
-                    <label>Enter Email:</label>
-                    <input type="text"  name="name" class="form-control" autocomplete="off" />
-                </div>
-            </form>
+      <!-- form card login -->
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">Register</h3>
         </div>
-        <div class="col-md-4"></div>
+        <div class="card-body">
+          <form class="register-form" (submit)="registerUser(registerForm)" #registerForm="ngForm">
+            <label>User name</label>
+            <input type="text" name="username" ngModel required="true" placeholder="username" #username="ngModel"/>
+            <br>
+            <br>
+            <div class="form-group">
+              <label>Password</label>
+              <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="enter a password" #password="ngModel"/>
+            </div>
+            <button style="float: center" type="submit" [disabled]="!registerForm.form.valid">Register</button>
+          </form>
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
     </div>
+  </div>
 </div>

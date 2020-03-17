@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
+/*
   loginUser() {
-    this._auth.loginUser(this.userData)
+    this._auth.registerUser(this.userData)
     .subscribe(
       res => {
         console.log(res)
@@ -25,6 +25,6 @@ export class LoginComponent implements OnInit {
       }, 
       err => console.log(err)
     )
-  }
+  }*/
 
 }

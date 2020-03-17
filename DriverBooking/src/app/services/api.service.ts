@@ -27,11 +27,6 @@ export class ApiService {
     //return this.http.get(this.GoogleVM + '/api/accom', {withCredentials: true});
   }
 
-  registerUser(user: User) {
-    // debugger
-    return this.http.post<User>(this.Url + 'register', user);
-   }
-
   get(id: string) {
    // return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
    return this.http.get(`${this.Url +'instructors'}/${id}`);
