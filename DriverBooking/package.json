@@ -22,14 +22,8 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-<<<<<<< HEAD
-    "@syncfusion/ej2-angular-schedule": "^17.4.47",
-    "@syncfusion/ej2-material-theme": "~17.4.46",
-    "angular-alert-module": "^2.0.3",
-    "angular-cli": "^1.0.0-beta.28.3",
-=======
->>>>>>> aa7bd9b4df09538572ca955ddb3b6ada4d44f476
     "body-parser": "^1.19.0",
+    "bycrypt": "^4.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
@@ -37,6 +31,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "rxjs": "~6.4.0",
+    "sequelize": "^5.21.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

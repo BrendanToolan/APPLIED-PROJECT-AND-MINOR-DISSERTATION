@@ -1,4 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+
+export class LoginComponent implements OnInit {
+ 
+  loginUserData = {}
+  constructor() {
+
+  }
+ 
+  ngOnInit(){
+  }
+
+  loginUser(){
+    console.log(this.loginUser)
+  }
+
+}
+
+
+/*import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule, FormBuilder, FormGroup, FormControl, FormArray,  Validators, AbstractControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -43,7 +68,7 @@ export class LoginComponent implements OnInit {
 
 }
 
-
+*/
 
 
 /*@Component({ templateUrl: 'login.component.html'})
@@ -65,37 +90,16 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+/*
+  loginUser() {
+    this._auth.registerUser(this.userData)
+    .subscribe(
+      res => {
+        console.log(res)
+        localStorage.setItem('token', res.token)
+        this._router.navigate(['/location-list'])
+      }, 
+      err => console.log(err)
+    )
+  }*/
 
-  ngOnInit() {
-    this.loginForm = this.formBuillder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }  
-
-  get f() {return this.loginForm.controls; }
-
-  onSubmit() {
-    this.submitted = true;
-
-    if(this.loginForm.invalid) {
-      return;
-    }
-
-    this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
-        .pipe(first())
-        .subscribe(
-          data => {
-            this.router.navigate([this.returnUrl]);
-          },
-          error => {
-            this.error = error;
-            this.loading = false;
-          }
-        );
-
-  }
-
-}*/

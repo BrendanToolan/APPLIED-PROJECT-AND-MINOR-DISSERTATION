@@ -1,38 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-//import { environment } from 'src/environments/environment'
-import { User } from 'src/app/model/user';
+import { Router } from '@angular/router';
+import { User } from '../model/user';
+import { Observable } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+    providedIn: 'root'
+})
+
 export class AuthService {
-    private currentUserSubject: BehaviorSubject<User>;
-    public currUser: Observable<User>;
-    currUsrVal: any;
+    //private _loginUrl = "http://localhost:8081/api/login";
+    private _regUrl = "http://localhost:8081/api/register"
 
-    constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currUser = this.currentUserSubject.asObservable();
-    }
+    constructor(private http: HttpClient, private _router: Router){ }
 
-    public get currentUserValue(): User {
-        return this.currentUserSubject.value;
-    }
-
-  /*  login(username: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
-            .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                return user;
-            }));
-    }*/
-
-    logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
+    registerUser(username: String, password: String): Observable<User> {
+       
+        const user: User = {
+            username: username,
+            password: password
+        };
+        return this.http.post<User>(this._regUrl, user);
     }
 }

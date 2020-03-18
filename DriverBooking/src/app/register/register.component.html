@@ -1,62 +1,29 @@
-<<<<<<< HEAD
-<div class="row pt-5">
-    <div class="col-md-6 mx-auto">
-        <div class="card rounded-0">
-            <div class="card-header">
-                <h3 class="mb-0">Register</h3>
-            </div>
-            <div class="card-body">
-                <form class="form">
-                    <div class="form-group">
-                        <Label for="">First Name</Label>
-                        <input [(ngModel)]="userData.name" name="name" type="text" class="form-control rounded-0" required>
-                    </div>
-                    <div class="form-group">
-                        <Label for="">Surname</Label>
-                        <input [(ngModel)]="userData.surname" name="surname" type="text" class="form-control rounded-0" required>
-                    </div>
-                    <div class="form-group">
-                        <Label for="">Email</Label>
-                        <input [(ngModel)]="userData.email" name="email" type="text" class="form-control rounded-0" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Address</label>
-                        <input [(ngModel)]="userData.address" name="address" type="text" class="form-control rounded-0" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Phone Number</label>
-                        <input [(ngModel)]="userData.number" name="number" type="text" class="form-control rounded-0" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Password</label>
-                        <input [(ngModel)]="userData.password" name="password" type="password" class="form-control rounded-0" required>
-                      </div>
-                    <button (click)="regUser()" type="button" class="btn btn-primary float-right">Register</button>
-                </form>
-            </div>
-=======
-<div class="conatiner">
+<div class="py-5">
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <form>
-                <div class="form-group">
-                    <label>Enter name:</label>
-                    <input type="text"  name="name" class="form-control" autocomplete="off" />
-                </div>
-
-                <div class="form-group">
-                    <label>Enter Last Name:</label>
-                    <input type="text"  name="name" class="form-control" autocomplete="off" />
-                </div>
-
-                <div class="form-group">
-                    <label>Enter Email:</label>
-                    <input type="text"  name="name" class="form-control" autocomplete="off" />
-                </div>
+      <div class="col-md-6 mx-auto">
+  
+  
+        <!-- form card login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Register</h3>
+          </div>
+          <div class="card-body">
+            <form class="register-form" (submit)="registerUser(registerForm)" #registerForm="ngForm">
+              <label>User name</label>
+              <input type="text" name="username" ngModel required="true" placeholder="username" #username="ngModel"/>
+              <br>
+              <br>
+              <div class="form-group">
+                <label>Password</label>
+                <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="enter a password" #password="ngModel"/>
+              </div>
+              <button style="float: center" type="submit" [disabled]="!registerForm.form.valid">Register</button>
             </form>
->>>>>>> aa7bd9b4df09538572ca955ddb3b6ada4d44f476
+          </div>
+          <!--/card-block-->
         </div>
-        <div class="col-md-4"></div>
+        <!-- /form card login -->
+      </div>
     </div>
-</div>
+  </div>
