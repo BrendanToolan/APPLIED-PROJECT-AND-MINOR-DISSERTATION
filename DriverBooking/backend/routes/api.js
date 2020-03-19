@@ -2,7 +2,7 @@ let express = require('express');
 let router = express.Router();
 let sql = require('../config/config.js');
 let UserInfo = require('../mod/user');
-
+let UsrLogin = require('../mod/authentication');
 var connection = require('../config/config.js');
 var bodyParser = require('body-parser');
 
@@ -107,11 +107,26 @@ router.post('/register', function (req, res) {
   }// End if else
 });//End POS
 
+//login
+router.post('/Login', function(req, res){
+  UsrLogin.auth(req.body.username, req.body.password, function (err, data) {
+    if(err) res.send(err);
 
+    if(data.success){
+      console.log(data.success);
+      req.session.username = req.body.username;
+      res.send(data);
+    } else {
+      res.send(data)
+    }
+  });
+});
+
+/*
 router.post('/Login', (req, res) => {
   let userData = req.body
 
-  UserInfo.findOne({email: userData.email}, (error, user) => {
+  UserInfo.findUser({email: userData.email}, (error, user) => {
     if(error){
       console.log(error)
     }else {
@@ -126,7 +141,7 @@ router.post('/Login', (req, res) => {
     }
   })
 })
-
+*/
 
        /* router.post('/register', (req, res) => {
           let userData = req.body;

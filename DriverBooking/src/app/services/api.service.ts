@@ -31,4 +31,6 @@ export class ApiService {
    // return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
    return this.http.get(`${this.Url +'instructors'}/${id}`);
   }
+
+  
 }

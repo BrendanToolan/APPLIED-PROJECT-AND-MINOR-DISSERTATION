@@ -8,7 +8,7 @@ import { InstructorDetailsComponent } from './instructor-details/instructor-deta
 import { BookingComponent } from './booking/booking.component';
 import { RegisterPageComponent } from './register/register.component';
 //import { AuthGuard } from './auth-guard/auth-guard.component';
-import { HomeComponent } from './home/home.component';
+//import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
