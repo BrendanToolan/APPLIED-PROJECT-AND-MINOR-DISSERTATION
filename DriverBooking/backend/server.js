@@ -10,10 +10,13 @@
     npm install express-session
 */
 
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const api = require('./routes/api');
 const app = express();
+
+
 
 //Parser content to JSON !!!!!!!!!!!!!!!!!!!!!
 app.use(bodyParser.json());

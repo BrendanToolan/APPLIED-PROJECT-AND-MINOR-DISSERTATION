@@ -4,6 +4,7 @@ let sql = require('../config/config.js');
 let UserInfo = require('../mod/user');
 let BookingInfo = require('../mod/bookings');
 
+let UsrLogin = require('../mod/authentication');
 var connection = require('../config/config.js');
 var bodyParser = require('body-parser');
 
@@ -105,6 +106,20 @@ router.post('/register', function (req, res) {
   }// End if else
 });//End POS
 
+//login
+router.post('/Login', function(req, res){
+  UsrLogin.auth(req.body.username, req.body.password, function (err, data) {
+    if(err) res.send(err);
+
+    if(data.success){
+      console.log(data.success);
+      req.session.username = req.body.username;
+      res.send(data);
+    } else {
+      res.send(data)
+    }
+  });
+});
 
 /*
 // let payload = {subject: registered.User._id}
@@ -112,10 +127,6 @@ router.post('/register', function (req, res) {
         // res.status(200).send({token})
         console.log(sql);
         //var sql = `INSERT INTO users (username, password ) VALUES ('${username}', '${password}')`;
-
-
-
-
 router.post('/Login', (req, res) => {
     let userData = req.body;
     var userName  = userData[0].userName;
@@ -124,7 +135,6 @@ router.post('/Login', (req, res) => {
     connection.query('SELECT * FROM users WHERE username = ?',[userName], (err, rows, fields) => {
         if (err) {
           console.log(err);
-
           return res.status(500).send( {'error' :'Sorry username does not exits'} );    
         }else {
             if (rows.length >0) {

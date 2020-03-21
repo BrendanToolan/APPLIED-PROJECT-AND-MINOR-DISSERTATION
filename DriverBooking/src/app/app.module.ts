@@ -64,7 +64,7 @@ import { AuthService } from './services/auth.service';
     //AlertsModule.forRoot(),
     
   ],
-  providers: [ApiService, AuthService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

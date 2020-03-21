@@ -17,4 +17,16 @@ UserInfo.createUser = function createUser(newUser, result) {
     });
 };
 
+UserInfo.findUser = function(username, result) {
+    sql.query('SELECT * FROM users WHERE username =?', [username], function(err, res){
+        if(err) {
+            console.log(err);
+            result(null, err);
+        } else{
+            result(null, res)
+        }
+    });
+};
+
+
 module.exports = UserInfo;

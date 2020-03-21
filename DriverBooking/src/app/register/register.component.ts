@@ -41,11 +41,11 @@ registerUser(form: NgForm) {
           // user registered, now run login page.
           this.router.navigate(['/Login']);
       } else if (data.username === 'ER_DUP_ENTRY') {
-          this.setErrorMessage('This Student ID number already exists in the databases, please try another one');
+          this.setErrorMessage('Please use another User Names');
       } 
   });
   console.log(form.value);
   form.resetForm(); // Reset the form
-}// E
+}
 
 }
