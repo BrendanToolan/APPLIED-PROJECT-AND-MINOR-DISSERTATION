@@ -16,7 +16,6 @@ export class RegisterPageComponent implements OnInit {
 
   private errorMessage;
 
-
   
   constructor(private auth: AuthService, private router: Router) {
 

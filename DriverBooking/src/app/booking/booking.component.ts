@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-booking',
@@ -8,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 
 export class BookingComponent implements OnInit {
 
-  constructor() { }
+  private errorMessage;
+
+  constructor(private Api: ApiService, private router: Router) { }
+
+  setErrorMessage(error: String) {
+    this.errorMessage = error;
+}
+
+getErrorMessage() {
+    return this.errorMessage;
+}
+
 
   ngOnInit() {
   }
+
+  MakeBooking(form: NgForm) {
+    // TO-DO Validation to be added
+    // Push data to api => to be pushed to database.
+    this.Api.MakeBooking(form.value.firstname, form.value.lastname, form.value.email, form.value.bookingDate, form.value.startTime, form.value.endTime).subscribe(data => {
+        if (data) {
+            // user registered, now run login page.
+           // this.router.navigate(['/Locations']);
+        } else if (data.firstname === 'ER_DUP_ENTRY') {
+            this.setErrorMessage('This Student ID number already exists in the databases, please try another one');
+        } 
+    });
+    console.log(form.value);
+    form.resetForm(); // Reset the form
+  }// E
 
 }

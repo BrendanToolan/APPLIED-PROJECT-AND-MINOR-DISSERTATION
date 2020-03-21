@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let sql = require('../config/config.js');
 let UserInfo = require('../mod/user');
+let BookingInfo = require('../mod/bookings');
 
 var connection = require('../config/config.js');
 var bodyParser = require('body-parser');
@@ -55,35 +56,32 @@ router.get('/instructors/:id', (req, res) => {
   })
 });
 
-router.post('/booking', (req, res) => {
+router.post('/booking', function (req, res) {
+  //New student object created from values passed in the body of the URL POST Request
+  let new_booking = new BookingInfo ({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      bookingDate: req.body.bookingDate,
+      startTime: req.body.startTime,
+      endTime: req.body.endTime
 
-  //  var post = {
-  //      Lid: 102, 
-  //      fname: 'tu',
-  //      lname: 'ui',
-  //      email: 'fdhgjh'
-  //  };
+  });
 
-
-  var Lid = req.body.Lid;
-  //fname = req.body;
-  //lname = req.body;
-  //email = req.body;
-
-
-  //  var start_at = req.body.start_at;
-  // var end_at = req.body.end_at;
-
-
-  sql.query`INSERT INTO booking (Lid)'Values ("${Lid}", NOW())`;
-  if (!err)
-    res.send(result);
-  else
-    console.log(err);
-
-  ///////////////////////////////
-
-});
+  // Handle for null errors if any
+  if (!new_booking.firstname || !new_booking.lastname || !new_booking.email || !new_booking.bookingDate || !new_booking.startTime || !new_booking.endTime) {
+      res.status(400).send({error: true, message: 'Please provide all criteria!'});
+  } else {
+    BookingInfo.createBooking(new_booking, function (err, data) {
+          if (err) {
+              res.send({status: false, errorCode: err.code, message: err.message});
+          } else {
+              //Complete!
+              res.json({status: true, errorCode: null, message: data}); //sendback request
+          }// end if else
+      });
+  }// End if else
+});//End POS
 
 router.post('/register', function (req, res) {
   //New student object created from values passed in the body of the URL POST Request
@@ -108,28 +106,6 @@ router.post('/register', function (req, res) {
 });//End POS
 
 
-
-       /* router.post('/register', (req, res) => {
-          let userData = req.body;
-          console.log(userData);
-          var username = userData[0].username;
-          var password = userData[0].password;
-          var sql = "INSERT INTO users ( username, password) VALUES ( '" + username + "', '" + password + "' )";
-          connection.query(sql, (err, rows, fields) => {
-              if (err) {
-                  console.log(err);
-                  return res.status(500).send({
-                      'error': 'Sorry username does not exits'
-                  });
-              } else {
-                  return res.status(200).send({
-                      'success': 'Registeration successful '
-                  });
-              }
-          })
-        });
-
-        */
 /*
 // let payload = {subject: registered.User._id}
         // let token = jwt.sign(payload, 'secretKey')
