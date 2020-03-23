@@ -66,15 +66,17 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 	(106, 'Brad', 'White', 0870154467, 'BradWhite@gmail.com','https://images.generated.photos/0xMaUB7Ql0yyCbHwSE_nnidq4k_30Aljsl4QMzrAJeo/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAyMDUwNjguanBn.jpg');
 
 
-	create table booking (
-	Lid int(10),
-	fname varchar(15),
-	lname varchar(15),
-	email varchar(20)
+	create table booking (	
+	firstname varchar(15),
+	lastname varchar(15),
+	email varchar(30),
+	bookingDate Date,
+	startTime varchar(10),
+	endTime varchar(10)
 	)Engine=InnoDB;
 
-		INSERT INTO booking (Lid, fname, lname, email) VALUES
-		(101, 'John', 'erer', 'sfsfd');
+		INSERT INTO booking (firstname, lastname, email, bookingDate, startTime, endTime) VALUES
+		('ty', 'ty', 'r', '2001-01-01', '10:00', '11:00');
 		
 	create table users(
 		username varchar(10),

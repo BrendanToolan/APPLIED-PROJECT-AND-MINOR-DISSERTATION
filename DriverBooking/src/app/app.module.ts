@@ -16,10 +16,11 @@ import { InstructorComponent } from './instructor/instructor/instructor.componen
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule, MatFormFieldModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AuthService } from './services/auth.service';
 import { AlertsModule } from 'angular-alert-module';
 
@@ -59,10 +60,11 @@ import { AlertsModule } from 'angular-alert-module';
     FormsModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    AlertsModule.forRoot(),
+    MatSelectModule
+    //AlertsModule.forRoot(),
     
   ],
-  providers: [ApiService, AlertsModule],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

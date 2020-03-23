@@ -31,7 +31,7 @@ app.use(session({
     key: 'sessCookie',
     secret: 'secret', //Secret for signing cookies
     resave: false, // Force save for each request
-    saveUninitialized: false, // Save a session that is new, but has not been modified
+    savseUninitialized: false, // Save a session that is new, but has not been modified
     cookie: {
         expires: 3600000, //after 1 hour
     } // End cookie
