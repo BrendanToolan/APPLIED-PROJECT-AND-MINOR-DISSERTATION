@@ -43,7 +43,7 @@ export class AuthService {
 
     private loggedInStatus = false;
 
-    setLogged(value: boolean) {
+    isLogged(value: boolean){
       this.loggedInStatus = value;
     }
 

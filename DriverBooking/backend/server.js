@@ -8,6 +8,7 @@
     npm install @angular/material @angular/cdk @angular/animations --save
     npm install @angular/flex-layout
     npm install express-session
+    npm install cookie-parser -g
 */
 
 
@@ -15,13 +16,26 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const api = require('./routes/api');
 const app = express();
-
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 
 //Parser content to JSON !!!!!!!!!!!!!!!!!!!!!
 app.use(bodyParser.json());
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+
+app.use(session({
+    name: 'cookie',
+    key: 'sessCookie',
+    secret: 'secret', //Secret for signing cookies
+    resave: false, // Force save for each request
+    saveUninitialized: false, // Save a session that is new, but has not been modified
+    cookie: {
+        expires: 3600000, //after 1 hour
+    } // End cookie
+}));
 
 // Create application/x-www-form-urlencoded parser & Cors
 app.use(function (req, res, next) {
@@ -35,7 +49,6 @@ app.use(function (req, res, next) {
         next();
     }
 });
-
 
 //Use api routes from the class created
 app.use('/api', api);
