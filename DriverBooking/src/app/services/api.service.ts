@@ -2,13 +2,10 @@ import { Injectable, wtfStartTimeRange } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
-<<<<<<< HEAD
 import { isLoggedIn } from '../isloggedin';
 import { Logout } from '../isloggedout';
-=======
 import { booking } from '../model/booking';
 
->>>>>>> 3c4e09fa9e746341bb8f7c032cde23a5bbc0ac20
 import { $ } from 'protractor';
 
 @Injectable({
@@ -39,7 +36,6 @@ export class ApiService {
    return this.http.get(`${this.Url +'instructors'}/${id}`);
   }
 
-<<<<<<< HEAD
   isLoggedIn(): Observable<isLoggedIn>{
     return this.http.get<isLoggedIn>(this.Url + 'api/Login', {withCredentials: true});
   }
@@ -49,7 +45,6 @@ export class ApiService {
 }
 
   
-=======
   MakeBooking(firstname: String, lastname: String, email: String, bookingDate: String, startTime: String, endTime: String): Observable<booking> {
 
     const book: booking = {
@@ -65,5 +60,4 @@ export class ApiService {
 
 
   }
->>>>>>> 3c4e09fa9e746341bb8f7c032cde23a5bbc0ac20
 }
