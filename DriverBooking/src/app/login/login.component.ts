@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
     this.auth.checkUserInfo(form.value.username, form.value.password).subscribe(data => {
         console.log(data);
         if (data.success) { // If true navigate to home page.
-            this.router.navigate(['/home']);
-            this.auth.setLogged(true); // Set client side logged in status to true.
+            this.router.navigate(['/locations']);
+            this.auth.isLogged(true); // Set client side logged in status to true.
             console.log('Success'); // Log success to console.
         } else {
             // Display error if request comes back false:

@@ -3,10 +3,10 @@ let router = express.Router();
 let sql = require('../config/config.js');
 let UserInfo = require('../mod/user');
 let BookingInfo = require('../mod/bookings');
-
 let UsrLogin = require('../mod/authentication');
 var connection = require('../config/config.js');
 var bodyParser = require('body-parser');
+let activeSess;
 
 router.use(bodyParser.json());
 
@@ -106,6 +106,25 @@ router.post('/register', function (req, res) {
   }// End if else
 });//End POS
 
+router.get('/auht', function(req, res){
+  activeSess = req.session;
+  console.log(activeSess);
+  activeSess.username = req.session.username;
+
+  console.log(activeSess.username)
+  console.log('Cookie: ', req.cookies.cookie);
+
+  if (activeSess.username && req.cookies.cookie){
+    res.send(res.loggedIn = {
+      status: true
+    });
+  } else {
+    res.send(res.loggedIn = {
+      statue: false
+    });
+  }
+});
+
 //login
 router.post('/Login', function(req, res){
   UsrLogin.auth(req.body.username, req.body.password, function (err, data) {
@@ -121,6 +140,15 @@ router.post('/Login', function(req, res){
   });
 });
 
+router.get('/logout', function(req, res){
+  if(activeSess.username && req.cookies.cookie){
+    res.clearCookie('cookie');
+    res.send(true);
+    console.log('Logout was Successful');
+  } else {
+    res.send(false)
+  }
+});
 /*
 // let payload = {subject: registered.User._id}
         // let token = jwt.sign(payload, 'secretKey')

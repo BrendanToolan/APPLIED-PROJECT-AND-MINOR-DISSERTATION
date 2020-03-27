@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AuthService } from './services/auth.service';
-//import { AlertsModule } from 'angular-alert-module';
+import { AlertsModule } from 'angular-alert-module';
 
 
 //import { AuthGuard } from './auth-guard/auth-guard.component';
