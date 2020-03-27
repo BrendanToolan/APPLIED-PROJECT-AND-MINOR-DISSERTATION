@@ -11,8 +11,8 @@ import { $ } from 'protractor';
 })
 export class ApiService {
 
-  //Google Cloud Instance VM
-  // GoogleVM = ""1563868.6732486423837;
+  //Google_Cloud: string = "2995064105809-compute@developer.gserviceaccount.com:8081";
+  //Googke_Cloud_book: string ="http://35.197.239.246/api/booing;"
   Url: string = "http://localhost:8081/api/";
   bookUrl: string ="http://localhost:8081/api/booking";
 
@@ -20,7 +20,7 @@ export class ApiService {
 
   //Contacts the server to get location data
   getLocation(): Observable<any> {
-    return this.http.get(this.Url + 'locations');
+    return this.http.get(this.Url + 'locations', {withCredentials: true});
     //return this.http.get(this.GoogleVM + '/api/accom', {withCredentials: true});
   }
 

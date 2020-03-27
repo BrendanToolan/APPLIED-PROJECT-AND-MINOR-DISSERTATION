@@ -67,18 +67,20 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 
 
 	create table booking (	
+	BookingID int NOT NULL AUTO_INCREMENT,
 	firstname varchar(15),
 	lastname varchar(15),
 	email varchar(30),
 	bookingDate Date,
 	startTime varchar(10),
-	endTime varchar(10)
+	endTime varchar(10),
+	PRIMARY KEY (BookingID)
 	)Engine=InnoDB;
 
-		INSERT INTO booking (firstname, lastname, email, bookingDate, startTime, endTime) VALUES
-		('ty', 'ty', 'r', '2001-01-01', '10:00', '11:00');
+		INSERT INTO booking (BookingID, firstname, lastname, email, bookingDate, startTime, endTime) VALUES
+		(1, 'ty', 'ty', 'r', '2001-01-01', '10:00', '11:00');
 		
-	create table users(
+	create table users (
 		username varchar(10),
 		password varchar(20)
 		)Engine=InnoDB;
