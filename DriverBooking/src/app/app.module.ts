@@ -22,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AuthService } from './services/auth.service';
-import { AlertsModule } from 'angular-alert-module';
+import { BookingDeatilsComponent } from './booking-deatils/booking-deatils.component';
+//import { AlertsModule } from 'angular-alert-module';
 
 
 //import { AuthGuard } from './auth-guard/auth-guard.component';
@@ -40,7 +41,8 @@ import { AlertsModule } from 'angular-alert-module';
     InstructorDetailsComponent,
     BookingComponent,
     FooterComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    BookingDeatilsComponent
     //AuthGuard
   ],
   imports: [
