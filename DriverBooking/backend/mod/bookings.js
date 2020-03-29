@@ -23,8 +23,8 @@ BookingInfo.createBooking = function createBooking(new_booking, result) {
     });
 };
 
-BookingInfo.getAllBookingInfo = function (username, result) {
-    sql.query('SELECT * from booking where username = ?', [username], function (err, res) {
+BookingInfo.getAllBookingInfo = function (result) {
+    sql.query('SELECT * from booking', function (err, res) {
         if (err) {
             console.log(err);
             result(null, err);

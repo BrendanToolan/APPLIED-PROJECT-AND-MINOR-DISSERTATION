@@ -84,18 +84,6 @@ router.post('/booking', function (req, res) {
   }// End if else
 });//End POS
 
-router.get('/booking/bookings/', function (req, res) {
-  SubjectInfo.getAllBookingInfo(activeSession.username, function (err, data) {
-      if (err) {
-          res.send(err);
-      } else {
-          console.log(data);
-          //Complete! sendback
-          res.send(data);
-      }// end if else
-  });
-}); // End GET REQUEST
-
 router.post('/register', function (req, res) {
   //New student object created from values passed in the body of the URL POST Request
   let new_user = new UserInfo ({
@@ -161,6 +149,19 @@ router.get('/logout', function(req, res){
     res.send(false)
   }
 });
+
+
+router.get('/bookings', function (req, res) {
+  BookingInfo.getAllBookingInfo(function (err, data) {
+      if (err) {
+          res.send(err);
+      } else {
+          console.log(data);
+          //Complete! sendback
+          res.send(data);
+      }// end if else
+  });
+}); // End GET REQUEST
 /*
 // let payload = {subject: registered.User._id}
         // let token = jwt.sign(payload, 'secretKey')

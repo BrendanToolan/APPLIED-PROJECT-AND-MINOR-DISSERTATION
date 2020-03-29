@@ -57,7 +57,9 @@ export class ApiService {
     };
 
     return this.http.post<booking>(this.bookUrl, book);
+  }
 
-
+  getAllBookingInfo(): Observable<any>{
+    return this.http.get(this.Url +'bookings')
   }
 }

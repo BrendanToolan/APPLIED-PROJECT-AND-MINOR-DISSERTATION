@@ -23,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AuthService } from './services/auth.service';
 import { BookingDeatilsComponent } from './booking-deatils/booking-deatils.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule, MatInputModule,MatNativeDateModule} from '@angular/material';
+
 //import { AlertsModule } from 'angular-alert-module';
 
 
@@ -62,7 +65,11 @@ import { BookingDeatilsComponent } from './booking-deatils/booking-deatils.compo
     FormsModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatProgressSpinnerModule, 
+    MatInputModule,
+    MatNativeDateModule
     //AlertsModule.forRoot(),
     
   ],
