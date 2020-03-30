@@ -5,9 +5,20 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
+var bcrypt = require('bcrypt');
 
 
 let connection = mysql.createConnection({
+    //LOCALHOST
+    host: '34.241.26.162',
+    //mysql user + db
+    user: 'james',
+    password: 'nelly123',
+    database: 'bigproject',
+
+});
+
+/*let connection = mysql.createConnection({
     // Localhost
     host: 'localhost',
     // MySQL user + database
@@ -15,7 +26,7 @@ let connection = mysql.createConnection({
     password: '',
     password: 'RumH@m96',
     database: 'bigproject'
-});
+});*/
 
 // Connect to the mysql database.
 connection.connect(function (err) {

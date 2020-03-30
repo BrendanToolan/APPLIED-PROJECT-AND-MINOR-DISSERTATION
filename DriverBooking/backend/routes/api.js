@@ -4,9 +4,17 @@ let sql = require('../config/config.js');
 let UserInfo = require('../mod/user');
 let BookingInfo = require('../mod/bookings');
 let UsrLogin = require('../mod/authentication');
-var connection = require('../config/config.js');
+var conection = require('../config/config.js');
 var bodyParser = require('body-parser');
 let activeSess;
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const password = 's0/\/\P4$$w0rD';
+const otherPassword = 'not_bacon';
+
+const salt = bcrypt.genSaltSync(saltRounds);
+const hash = bcrypt.hashSync(otherPassword, salt);
 
 router.use(bodyParser.json());
 
@@ -125,7 +133,7 @@ router.get('/auht', function(req, res){
   }
 });
 
-//login
+
 router.post('/Login', function(req, res){
   UsrLogin.auth(req.body.username, req.body.password, function (err, data) {
     if(err) res.send(err);
@@ -149,6 +157,10 @@ router.get('/logout', function(req, res){
     res.send(false)
   }
 });
+
+bcrypt.compareSync(password, hash);
+bcrypt.compareSync(otherPassword, hash);
+
 /*
 // let payload = {subject: registered.User._id}
         // let token = jwt.sign(payload, 'secretKey')

@@ -8,7 +8,9 @@
     npm install @angular/material @angular/cdk @angular/animations --save
     npm install @angular/flex-layout
     npm install express-session
-    npm install cookie-parser -g
+    npm install cookie-parser -g - (needs to be installed in the backend and outside the backend)
+    npm install node-gyp -g
+    npm i --S bcrypt ( for password hashing )
 */
 
 
@@ -18,7 +20,7 @@ const api = require('./routes/api');
 const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-
+const bcrypt = require('bcrypt');
 
 //Parser content to JSON !!!!!!!!!!!!!!!!!!!!!
 app.use(bodyParser.json());
@@ -52,7 +54,6 @@ app.use(function (req, res, next) {
 
 //Use api routes from the class created
 app.use('/api', api);
-
 
 const server = app.listen(8081, function () {
     console.log("Server Info: ", server.address())

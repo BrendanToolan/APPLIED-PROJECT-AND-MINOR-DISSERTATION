@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { Observable } from 'rxjs';
 import { AuthData } from '@app/auth.data';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable({
     providedIn: 'root'
@@ -58,5 +59,21 @@ export class AuthService {
           password
       }, {withCredentials: true});
   }// End function
+
+  public static hashPassword(password: string, rounds: number, callback: (error: Error, hash: string) => void){
+    bcrypt.hash(password, rounds, (error, hash) => {
+      callback(error, hash);
+    })
+  }
+
+  public static compare(password: string, dbHash: string, callback: (error: string | null, match: boolean | null) => void){
+    bcrypt.compare(password, dbHash, (err: Error, match: boolean) => {
+      if(match) {
+        callback(null, true);
+      } else {
+        callback('Invalid)', null);
+      }
+    })
+  }
 
 }
