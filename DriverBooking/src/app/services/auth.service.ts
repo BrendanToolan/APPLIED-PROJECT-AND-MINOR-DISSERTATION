@@ -18,8 +18,11 @@ export class AuthService {
   logout() {
     throw new Error("Method not implemented.");
   }
-    private _loginUrl = "http://localhost:8081/api/Login";
-    private _regUrl = "http://localhost:8081/api/register"
+
+  AWS_Cloud_login: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/Login';
+  AWS_Cloud_reg: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/register';
+   // private _loginUrl = "http://localhost:8081/api/Login";
+    //private _regUrl = "http://localhost:8081/api/register"
 
     constructor(private http: HttpClient, private _router: Router){ }
 
@@ -29,11 +32,11 @@ export class AuthService {
             username: username,
             password: password
         };
-        return this.http.post<User>(this._regUrl, user);
+        return this.http.post<User>(this.AWS_Cloud_reg, user);
     }
 
     loginUser(user){
-      return this.http.post<any>(this._loginUrl, user)
+      return this.http.post<any>(this.AWS_Cloud_login, user)
         .subscribe(
           res => console.log(res),
           err => console.log(err)
@@ -53,7 +56,7 @@ export class AuthService {
 
     checkUserInfo(username, password) {
       console.log(username, password);
-      return this.http.post<AuthData>(this._loginUrl ,{
+      return this.http.post<AuthData>(this.AWS_Cloud_login ,{
           username,
           password
       }, {withCredentials: true});

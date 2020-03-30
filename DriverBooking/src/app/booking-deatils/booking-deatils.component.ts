@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService } from '..//services/api.service';
 import { DataSource } from '@angular/cdk/table';
 import {booking} from '..//model/booking';
+import { mergeMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-booking-deatils',
@@ -15,7 +17,7 @@ export class BookingDeatilsComponent implements OnInit {
   public successMsg: string;
 
   public bookings: booking[];
-  public columns = ['bookingDate', 'startTime', 'endTime'];
+  public columns = ['bookingDate', 'startTime', 'endTime', 'cancel'];
   //DataSource = this.bookings;
 
   constructor(private Api: ApiService) { }
@@ -31,5 +33,18 @@ export class BookingDeatilsComponent implements OnInit {
       this.loading = false;
     });
 }
-
+DeleteBooking(id: number) {
+  this.Api.DeleteBooking(id)
+  .pipe(
+    mergeMap(() => this.Api.getAllBookingInfo())
+  )
+  .subscribe((bookings: booking[]) => {
+    this.bookings = bookings;
+    console.log(id);
+    this.successMsg = 'Booking Successfully Cancelled';
+  },
+  (error: ErrorEvent) => {
+    this.errorMsg = error.error.message;
+  });
+  }
 }

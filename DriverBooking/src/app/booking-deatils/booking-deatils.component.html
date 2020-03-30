@@ -25,6 +25,11 @@
           <th mat-header-cell *matHeaderCellDef> Booking end time </th>
           <td mat-cell *matCellDef="let booking"> {{booking.endTime}} </td>
         </ng-container>
+
+        <ng-container matColumnDef="cancel">
+            <th mat-header-cell *matHeaderCellDef> Delete the booking </th>
+            <td mat-cell *matCellDef="let booking"><button (click)="DeleteBooking(booking.bid)" mat-raised-button color="warn">Delete Booking</button></td>
+          </ng-container>
       
         <!-- Symbol Column -->
       

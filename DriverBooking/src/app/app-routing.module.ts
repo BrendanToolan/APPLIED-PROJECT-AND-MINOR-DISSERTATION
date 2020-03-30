@@ -54,6 +54,11 @@ const routes: Routes = [
    },
    {
     path: '',
+    redirectTo: 'bookings/:id',
+    pathMatch: 'full'
+   },
+   {
+    path: '',
     redirectTo: 'register',
     pathMatch: 'full'
    }
