@@ -19,8 +19,14 @@ export class AuthService {
   logout() {
     throw new Error("Method not implemented.");
   }
-    private _loginUrl = "http://localhost:8081/api/Login";
-    private _regUrl = "http://localhost:8081/api/register"
+
+  //needed for the cloud
+  AWS_Cloud_login: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/Login';
+  AWS_Cloud_reg: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/register';
+   
+    //needed locally
+    //private _loginUrl = "http://localhost:8081/api/Login";
+    //private _regUrl = "http://localhost:8081/api/register"
 
     constructor(private http: HttpClient, private _router: Router){ }
 
@@ -30,17 +36,31 @@ export class AuthService {
             username: username,
             password: password
         };
-        return this.http.post<User>(this._regUrl, user);
+        //needed for the cloud
+        return this.http.post<User>(this.AWS_Cloud_reg, user);
+       //needed for locally
+       // return this.http.post<User>(this._regUrl, user);
     }
 
+    //needed for the cloud
     loginUser(user){
-      return this.http.post<any>(this._loginUrl, user)
+      return this.http.post<any>(this.AWS_Cloud_login, user)
         .subscribe(
           res => console.log(res),
           err => console.log(err)
 
         )
     }
+
+    //needed for locally
+    /*loginUser(user){
+      return this.http.post<any>(this._loginUrl, user)
+        .subscribe(
+          res => console.log(res),
+          err => console.log(err)
+
+        )
+    }*/
 
     private loggedInStatus = false;
 
@@ -52,28 +72,24 @@ export class AuthService {
       return this.loggedInStatus;
     }
 
+    //used for the cloud
     checkUserInfo(username, password) {
       console.log(username, password);
-      return this.http.post<AuthData>(this._loginUrl ,{
+      return this.http.post<AuthData>(this.AWS_Cloud_login ,{
           username,
           password
       }, {withCredentials: true});
-  }// End function
+  }// End function 
 
-  public static hashPassword(password: string, rounds: number, callback: (error: Error, hash: string) => void){
-    bcrypt.hash(password, rounds, (error, hash) => {
-      callback(error, hash);
-    })
-  }
+  //used for locally
+  /*checkUserInfo(username, password) {
+    console.log(username, password);
+    return this.http.post<AuthData>(this._loginUrl ,{
+        username,
+        password
+    }, {withCredentials: true});
+}// End function */
 
-  public static compare(password: string, dbHash: string, callback: (error: string | null, match: boolean | null) => void){
-    bcrypt.compare(password, dbHash, (err: Error, match: boolean) => {
-      if(match) {
-        callback(null, true);
-      } else {
-        callback('Invalid)', null);
-      }
-    })
-  }
+
 
 }

@@ -1,4 +1,4 @@
-.mb-0{
+.h1{
   text-align: center;
   color: black;
   background-color: darkslategrey;
@@ -6,13 +6,11 @@
 }
 
 .card-header{
-  background-color: darkslategray;
+  background-color: paleturquoise;
   margin: -1px;
 }
 
 .card-body{
-  text-align: center;
-    border: inset;
     color: black;
     font-size: larger;
     font-stretch: semi-expanded;
@@ -24,5 +22,17 @@
     text-align: -webkit-match-parent;
     padding-left: 80px;
     padding-right: 80px;
-    border: solid;
+    background-color: paleturquoise;
+}
+
+.rounded-0{
+  background-color: paleturquoise;
+  align-items: center;
+}
+.head{
+  text-align: center;
+}
+.hr{
+  color: black;
+  border-top: 2px;
 }

@@ -65,25 +65,30 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 	(106, 'Aaron', 'Evans', 08703486, 'AaronEvans@gmail.com','https://images.generated.photos/9lTcHmO7kNxpr-OKeVHzkB9ZnVk7sn3T9NxOU65eDUM/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAyNjkyNTEuanBn.jpg'),
 	(106, 'Brad', 'White', 0870154467, 'BradWhite@gmail.com','https://images.generated.photos/0xMaUB7Ql0yyCbHwSE_nnidq4k_30Aljsl4QMzrAJeo/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAyMDUwNjguanBn.jpg');
 
+	
+	create table users (
+		username varchar(10) PRIMARY KEY,
+		password varchar(20)
+		)Engine=InnoDB;
+
+		INSERT INTO users (username, password) VALUES 
+		('test123', 'test123');
+
 
 	create table booking (	
+	bid int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	firstname varchar(15),
 	lastname varchar(15),
 	email varchar(30),
 	bookingDate Date,
 	startTime varchar(10),
-	endTime varchar(10)
+	endTime varchar(10),
+	username varchar(10),
+
+	foreign KEY (username) references users(username)
 	)Engine=InnoDB;
 
-		INSERT INTO booking (firstname, lastname, email, bookingDate, startTime, endTime) VALUES
-		('ty', 'ty', 'r', '2001-01-01', '10:00', '11:00');
+		INSERT INTO booking (bid, firstname, lastname, email, bookingDate, startTime, endTime, username) VALUES
+		(1, 'ty', 'ty', 'r', '2001-01-01', '10:00', '11:00', 'test123');
 		
-	create table users(
-		username varchar(10),
-		password varchar(20)
-		)Engine=InnoDB;
-
-		INSERT INTO users (username, password) VALUES 
-		('test', 'test');
-
 	show warnings;

@@ -22,7 +22,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AuthService } from './services/auth.service';
-import { AlertsModule } from 'angular-alert-module';
+import { BookingDeatilsComponent } from './booking-deatils/booking-deatils.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule, MatInputModule,MatNativeDateModule} from '@angular/material';
+
+//import { AlertsModule } from 'angular-alert-module';
 
 
 //import { AuthGuard } from './auth-guard/auth-guard.component';
@@ -40,7 +44,8 @@ import { AlertsModule } from 'angular-alert-module';
     InstructorDetailsComponent,
     BookingComponent,
     FooterComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    BookingDeatilsComponent
     //AuthGuard
   ],
   imports: [
@@ -60,7 +65,11 @@ import { AlertsModule } from 'angular-alert-module';
     FormsModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatProgressSpinnerModule, 
+    MatInputModule,
+    MatNativeDateModule
     //AlertsModule.forRoot(),
     
   ],

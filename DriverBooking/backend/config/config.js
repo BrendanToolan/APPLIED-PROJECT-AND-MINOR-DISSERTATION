@@ -8,7 +8,7 @@ var path = require('path');
 var bcrypt = require('bcrypt');
 
 
-let connection = mysql.createConnection({
+/*let connection = mysql.createConnection({
     //LOCALHOST
     host: '34.241.26.162',
     //mysql user + db
@@ -16,9 +16,13 @@ let connection = mysql.createConnection({
     password: 'nelly123',
     database: 'bigproject',
 
-});
+});*/
 
-/*let connection = mysql.createConnection({
+//==============================================//
+//       Locally Testing server and DB
+//=============================================//
+
+let connection = mysql.createConnection({
     // Localhost
     host: 'localhost',
     // MySQL user + database
@@ -26,15 +30,25 @@ let connection = mysql.createConnection({
     password: '',
     password: 'RumH@m96',
     database: 'bigproject'
-});*/
+});
+
 
 // Connect to the mysql database.
+/*connection.connect(function (err) {
+    if (err) throw err;
+    console.log(err);
+    console.log("aws connected");
+    console.log("Connect to MySQL Server");
+    console.log("Status: " + connection.state, "\nDatabase: " + connection.config.database, "\nPort: " + connection.config.port);
+});*/
+
+
 connection.connect(function (err) {
     if (err) throw err;
+    console.log(err);
     console.log("Connect to MySQL Server");
     console.log("Status: " + connection.state, "\nDatabase: " + connection.config.database, "\nPort: " + connection.config.port);
 });
-
 
 
 // Export connection

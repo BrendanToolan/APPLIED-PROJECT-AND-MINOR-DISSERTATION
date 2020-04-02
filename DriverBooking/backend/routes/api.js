@@ -33,6 +33,7 @@ router.get('/locations', function (req, res) {
     console.log("inside the backend get method");
     // Complete - send callback
     res.send(data);
+    console.log(req);
     console.log(data);
   });
 });
@@ -161,6 +162,38 @@ router.get('/logout', function(req, res){
 bcrypt.compareSync(password, hash);
 bcrypt.compareSync(otherPassword, hash);
 
+
+router.get('/bookings', function (req, res) {
+  BookingInfo.getAllBookingInfo(function (err, data) {
+      if (err) {
+          res.send(err);
+      } else {
+          console.log(data);
+          //Complete! sendback
+          res.send(data);
+      }// end if else
+  });
+}); 
+
+router.delete('/bookings/:id', function (req, res) {
+  BookingInfo.DeleteBooking(req.params.bid, function (err, data) {
+      if (err) {
+          res.send(err);
+      } else {
+          //Complete!
+          //res.json(data);
+          console.log(data);
+          res.json({ message: 'Student successfully deleted'});
+          //res.status(status).json(obj)
+         // res.status(200).json({message: 'Student successfully deleted'}, data);
+      }
+  });
+});
+
+
+
+
+// End GET REQUEST
 /*
 // let payload = {subject: registered.User._id}
         // let token = jwt.sign(payload, 'secretKey')

@@ -1,29 +1,30 @@
       <!-- form card login -->
       <div class="card rounded-0">
-        <div class="card-header">
-          <h3 class="mb-0">Make a booking</h3>
-          <br>
-        </div>
-        <div class="card-body">
+          <h3 class="mb-0"></h3>
+          <div class="head">
+            <h1>Make a Booking</h1>
+            <div>
+              <hr style="border-top: -2px; color: black; border: solid;">
+        <div class="card-body"> 
           <form class="booking-form" (submit)="MakeBooking(BookingForm)" #BookingForm="ngForm">
                 <label>First Name</label>
-                <input type="text" name="firstname" ngModel required="true" placeholder="enter your firstname" #firstname="ngModel"/>
+                <input type="text" name="firstname" ngModel required="true" placeholder="Enter First Name" #firstname="ngModel"/>
             <br>
             <br>
               <div class="form-group">
               <label>Last Name</label>
-              <input  type="lastname" name="lastname" ngModel required="true" placeholder="enter your Last Name" #lastname="ngModel"/>
+              <input  type="lastname" name="lastname" ngModel required="true" placeholder="Enter Last Name" #lastname="ngModel"/>
               </div>
         
 
 
             <div class="form-group">
               <label>Email</label>
-              <input  type="email" name="email" ngModel required="true" placeholder="enter your Email" #email="ngModel"/>
+              <input  type="email" name="email" ngModel required="true" placeholder="Enter Email" #email="ngModel"/>
             </div>
             <div class="form-group">
               <label>Book a Date</label>
-              <input  type="date" name="booking date" ngModel required="true" placeholder="enter your booking date" #bookingDate="ngModel"/>
+              <input  type="date" name="booking date" ngModel required="true" placeholder="Enter Booking Date" #bookingDate="ngModel"/>
             </div>
             <mat-form-field>
               <mat-label>Select a Start time</mat-label>
