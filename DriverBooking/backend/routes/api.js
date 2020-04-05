@@ -8,13 +8,7 @@ var conection = require('../config/config.js');
 var bodyParser = require('body-parser');
 let activeSess;
 
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
-const password = 's0/\/\P4$$w0rD';
-const otherPassword = 'not_bacon';
-
-const salt = bcrypt.genSaltSync(saltRounds);
-const hash = bcrypt.hashSync(otherPassword, salt);
+let bcrypt = require('bcryptjs');
 
 router.use(bodyParser.json());
 
@@ -97,7 +91,7 @@ router.post('/register', function (req, res) {
   //New student object created from values passed in the body of the URL POST Request
   let new_user = new UserInfo ({
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
   });
 
   // Handle for null errors if any
@@ -113,9 +107,12 @@ router.post('/register', function (req, res) {
           }// end if else
       });
   }// End if else
+
+  //bcrypt.hash();
+  
 });//End POS
 
-router.get('/auht', function(req, res){
+router.get('/auth', function(req, res){
   activeSess = req.session;
   console.log(activeSess);
   activeSess.username = req.session.username;
@@ -159,8 +156,8 @@ router.get('/logout', function(req, res){
   }
 });
 
-bcrypt.compareSync(password, hash);
-bcrypt.compareSync(otherPassword, hash);
+/*bcrypt.compareSync(password, hash);
+bcrypt.compareSync(otherPassword, hash);*/
 
 
 router.get('/bookings', function (req, res) {
