@@ -13,38 +13,38 @@ import { $ } from 'protractor';
 })
 export class ApiService {
 
-  AWS_Cloud: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081';
-  AWS_Cloud_book: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081/api/booking';
- // Url: string = "http://localhost:8081/api/";
- // bookUrl: string ="http://localhost:8081/api/booking";
+  // AWS_Cloud: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081';
+  // AWS_Cloud_book: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081/api/booking';
+  Url: string = "http://localhost:8081/api/";
+  bookUrl: string ="http://localhost:8081/api/booking";
 
   constructor(private http: HttpClient) { }
 
   //Contacts the server to get location data
   getLocation(): Observable<any> {
-   return this.http.get(this.AWS_Cloud + '/api/locations', {withCredentials: true});
-    //return this.http.get(this.Url + 'locations', {withCredentials: true});
+   //return this.http.get(this.AWS_Cloud + '/api/locations', {withCredentials: true});
+    return this.http.get(this.Url + 'locations', {withCredentials: true});
   }
 
   getInstructor(): Observable<any> {
-    //return this.http.get(this.Url + 'instructors');
-    return this.http.get(this.AWS_Cloud + '/api/instructors');
+    return this.http.get(this.Url + 'instructors');
+  //return this.http.get(this.AWS_Cloud + '/api/instructors');
   }
 
   get(id: string) {
    // return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
-  // return this.http.get(`${this.Url + 'instructors'}/${id}`);
-   return this.http.get(`${this.AWS_Cloud + '/api/instructors'}/${id}`);
+    return this.http.get(`${this.Url + 'instructors'}/${id}`);
+   //return this.http.get(`${this.AWS_Cloud + '/api/instructors'}/${id}`);
   }
 
   isLoggedIn(): Observable<isLoggedIn>{
-    //return this.http.get<isLoggedIn>(this.Url + 'api/Login', {withCredentials: true});
-    return this.http.get<isLoggedIn>(this.AWS_Cloud + '/api/Login', {withCredentials: true});
+    return this.http.get<isLoggedIn>(this.Url + 'api/Login', {withCredentials: true});
+    //return this.http.get<isLoggedIn>(this.AWS_Cloud + '/api/Login', {withCredentials: true});
   }
 
   logout(): Observable<Logout> {
-   // return this.http.get<Logout>(this.Url + '/api/logout', {withCredentials: true});
-    return this.http.get<Logout>(this.AWS_Cloud + '/api/logout', {withCredentials: true});
+   // return this.http.get<Logout>(this.AWS_Cloud + '/api/logout', {withCredentials: true});
+    return this.http.get<Logout>(this.Url + '/api/logout', {withCredentials: true});
 }
 
   
@@ -59,18 +59,17 @@ export class ApiService {
       endTime: endTime
     };
 
-    return this.http.post<booking>(this.AWS_Cloud_book, book);
+    return this.http.post<booking>(this.bookUrl, book);
   }
 
   getAllBookingInfo(): Observable<any>{
    // return this.http.get(this.Url +'bookings');
-    return this.http.get(this.AWS_Cloud +'/api/bookings');
+    return this.http.get(this.Url + 'bookings');
   }
 
-  DeleteBooking(id: number): Observable<any> {
+  deleteBookingByID(id: number): Observable<any>  {
     //return this.http.delete(`${this.Url +'bookings'}/${id}`);
-    return this.http.delete(`${this.AWS_Cloud +'/api/bookings'}/${id}`);
+    return this.http.delete(`${this.Url +'bookings'}/${id}`);
    // return this.http.delete(this.Url + 'bookings/' + id);
 }// end delete subject function
-
 }

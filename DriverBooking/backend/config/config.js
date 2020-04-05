@@ -6,7 +6,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
 
-
+/*
 let connection = mysql.createConnection({
     // Localhost
     host: '34.245.42.129',
@@ -15,22 +15,21 @@ let connection = mysql.createConnection({
     password: 'nelly123',
     database: 'bigproject'
 });
-
+*/
 
 //==============================================//
 //       Locally Testing server and DB
 //=============================================//
-/*
+
 let connection = mysql.createConnection({
     // Localhost
     host: 'localhost',
     // MySQL user + database
     user: 'root',
     password: '',
-    password: '',
     database: 'bigproject'
 });
-*/
+
 
 
 // Connect to the mysql database.
