@@ -1,9 +1,11 @@
 let sql = require('../config/config.js');
+let bcrypt = require('bcrypt'); 
 
 let UsrLogin = function(user){
     this.username = user.username;
     this.password = user.password;
 }
+
 
 UsrLogin.auth = function(username, password, result) {
     sql.query('SELECT * FROM users WHERE username =? AND password =?', [username, password], function (err, res){
