@@ -3,6 +3,7 @@ import {ApiService } from '..//services/api.service';
 import { DataSource } from '@angular/cdk/table';
 import {booking} from '..//model/booking';
 import { mergeMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class BookingDeatilsComponent implements OnInit {
 
+  id: number;
   public loading = true;
   public errorMsg: string;
   public successMsg: string;
@@ -20,7 +22,7 @@ export class BookingDeatilsComponent implements OnInit {
   public columns = ['bookingDate', 'startTime', 'endTime', 'cancel'];
   //DataSource = this.bookings;
 
-  constructor(private Api: ApiService) { }
+  constructor(private Api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.Api.getAllBookingInfo()
@@ -34,13 +36,12 @@ export class BookingDeatilsComponent implements OnInit {
     });
 }
 DeleteBooking(id: number) {
-  this.Api.DeleteBooking(id)
+  this.Api.deleteBookingByID(id)
   .pipe(
     mergeMap(() => this.Api.getAllBookingInfo())
   )
-  .subscribe((bookings: booking[]) => {
+  .subscribe((bookings: booking[]) => { 
     this.bookings = bookings;
-    console.log(id);
     this.successMsg = 'Booking Successfully Cancelled';
   },
   (error: ErrorEvent) => {

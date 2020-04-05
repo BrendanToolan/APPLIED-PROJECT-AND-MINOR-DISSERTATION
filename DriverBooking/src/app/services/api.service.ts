@@ -15,6 +15,8 @@ export class ApiService {
 
   //AWS_Cloud: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081';
   //AWS_Cloud_book: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081/api/booking';
+  // AWS_Cloud: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081';
+  // AWS_Cloud_book: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081/api/booking';
   Url: string = "http://localhost:8081/api/";
   bookUrl: string ="http://localhost:8081/api/booking";
 
@@ -31,9 +33,14 @@ export class ApiService {
     //return this.http.get(this.AWS_Cloud + '/api/instructors');
   }
 
+  
+  getUsersDetails(): Observable<any> {
+    return this.http.get(this.Url+ 'api/Login');
+  }
+
   get(id: string) {
-   //return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
-   return this.http.get(`${this.Url + 'instructors'}/${id}`);
+   // return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
+    return this.http.get(`${this.Url + 'instructors'}/${id}`);
    //return this.http.get(`${this.AWS_Cloud + '/api/instructors'}/${id}`);
   }
 
@@ -43,13 +50,9 @@ export class ApiService {
   }
 
   logout(): Observable<Logout> {
+   // return this.http.get<Logout>(this.AWS_Cloud + '/api/logout', {withCredentials: true});
     return this.http.get<Logout>(this.Url + '/api/logout', {withCredentials: true});
-    //return this.http.get<Logout>(this.AWS_Cloud + '/api/logout', {withCredentials: true});
-  }
-
-  getUserDetails(): Observable<any> {
-    return this.http.get(this.Url + '/api/Login');
-  }
+}
 
   
   MakeBooking(firstname: String, lastname: String, email: String, bookingDate: String, startTime: String, endTime: String): Observable<booking> {
@@ -63,19 +66,17 @@ export class ApiService {
       endTime: endTime
     };
 
-    //return this.http.post<booking>(this.AWS_Cloud_book, book);
-    return this.http.post<booking>(this.bookUrl, book)
+    return this.http.post<booking>(this.bookUrl, book);
   }
 
   getAllBookingInfo(): Observable<any>{
-    return this.http.get(this.Url +'bookings');
-    //return this.http.get(this.AWS_Cloud +'/api/bookings');
+   // return this.http.get(this.Url +'bookings');
+    return this.http.get(this.Url + 'bookings');
   }
 
-  DeleteBooking(id: number): Observable<any> {
+  deleteBookingByID(id: number): Observable<any>  {
+    //return this.http.delete(`${this.Url +'bookings'}/${id}`);
     return this.http.delete(`${this.Url +'bookings'}/${id}`);
-   // return this.http.delete(`${this.AWS_Cloud +'/api/bookings'}/${id}`);
    // return this.http.delete(this.Url + 'bookings/' + id);
 }// end delete subject function
-
 }

@@ -172,19 +172,16 @@ router.get('/bookings', function (req, res) {
   });
 }); 
 
-router.delete('/bookings/:id', function (req, res) {
-  BookingInfo.DeleteBooking(req.params.bid, function (err, data) {
-      if (err) {
-          res.send(err);
-      } else {
-          //Complete!
-          //res.json(data);
-          console.log(data);
-          res.json({ message: 'Student successfully deleted'});
+router.delete('/bookings/:id', (req, res) => {
+  sql.query('DELETE FROM booking WHERE bid = ?',[req.params.id],(err, rows, fields)=>{
+      if (!err) 
+      res.send('Deleted');
+      else 
+          console.log(err);
+          //res.json({ message: 'Student successfully deleted'});
           //res.status(status).json(obj)
          // res.status(200).json({message: 'Student successfully deleted'}, data);
-      }
-  });
+  })
 });
 
 

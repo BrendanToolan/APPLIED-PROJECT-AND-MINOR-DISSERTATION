@@ -35,16 +35,13 @@ BookingInfo.getAllBookingInfo = function (result) {
     });
 };
 
-BookingInfo.DeleteBooking = function (bid, result) {
-    sql.query('DELETE from booking where bid = ?', [bid], function (err, res) {
-        if (err) {
-            console.log(err);
-            console.log(bid);
-            result(null, err);
-        } else {
-            result(null, res)
-        }
-    })
-}
+BookingInfo.DeleteBooking = function (req, result) {
+    sql.query('DELETE from booking where bid = ?',[req.params.bid], function (err, res) {
+        if (!err) 
+        res.send('Deleted');
+        else 
+        console.log(err);
+    });
+};
 
 module.exports = BookingInfo;
