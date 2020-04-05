@@ -13,6 +13,8 @@ import { $ } from 'protractor';
 })
 export class ApiService {
 
+  //AWS_Cloud: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081';
+  //AWS_Cloud_book: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081/api/booking';
   // AWS_Cloud: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081';
   // AWS_Cloud_book: string = 'http://ec2-34-245-42-129.eu-west-1.compute.amazonaws.com:8081/api/booking';
   Url: string = "http://localhost:8081/api/";
@@ -28,7 +30,12 @@ export class ApiService {
 
   getInstructor(): Observable<any> {
     return this.http.get(this.Url + 'instructors');
-  //return this.http.get(this.AWS_Cloud + '/api/instructors');
+    //return this.http.get(this.AWS_Cloud + '/api/instructors');
+  }
+
+  
+  getUsersDetails(): Observable<any> {
+    return this.http.get(this.Url+ 'api/Login');
   }
 
   get(id: string) {

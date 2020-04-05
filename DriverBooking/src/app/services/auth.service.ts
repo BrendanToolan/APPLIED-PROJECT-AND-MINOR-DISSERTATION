@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { Observable } from 'rxjs';
 import { AuthData } from '@app/auth.data';
-import * as bcrypt from 'bcryptjs';
+//import * as bcrypt from 'bcryptjs';
 
 @Injectable({
     providedIn: 'root'
@@ -21,12 +21,12 @@ export class AuthService {
   }
 
   //needed for the cloud
-  AWS_Cloud_login: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/Login';
-  AWS_Cloud_reg: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/register';
+  //AWS_Cloud_login: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/Login';
+  //AWS_Cloud_reg: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/register';
    
     //needed locally
-    //private _loginUrl = "http://localhost:8081/api/Login";
-    //private _regUrl = "http://localhost:8081/api/register"
+  private _loginUrl = "http://localhost:8081/api/Login";
+  private _regUrl = "http://localhost:8081/api/register"
 
     constructor(private http: HttpClient, private _router: Router){ }
 
@@ -37,30 +37,30 @@ export class AuthService {
             password: password
         };
         //needed for the cloud
-        return this.http.post<User>(this.AWS_Cloud_reg, user);
+        //return this.http.post<User>(this.AWS_Cloud_reg, user);
        //needed for locally
-       // return this.http.post<User>(this._regUrl, user);
+        return this.http.post<User>(this._regUrl, user);
     }
 
     //needed for the cloud
-    loginUser(user){
+   /* loginUser(user){
       return this.http.post<any>(this.AWS_Cloud_login, user)
         .subscribe(
           res => console.log(res),
           err => console.log(err)
 
         )
-    }
+    }*/
 
     //needed for locally
-    /*loginUser(user){
+    loginUser(user){
       return this.http.post<any>(this._loginUrl, user)
         .subscribe(
           res => console.log(res),
           err => console.log(err)
 
         )
-    }*/
+    }
 
     private loggedInStatus = false;
 
@@ -73,22 +73,22 @@ export class AuthService {
     }
 
     //used for the cloud
-    checkUserInfo(username, password) {
+    /*checkUserInfo(username, password) {
       console.log(username, password);
       return this.http.post<AuthData>(this.AWS_Cloud_login ,{
           username,
           password
       }, {withCredentials: true});
-  }// End function 
+  }// End function */
 
   //used for locally
-  /*checkUserInfo(username, password) {
+  checkUserInfo(username, password) {
     console.log(username, password);
     return this.http.post<AuthData>(this._loginUrl ,{
         username,
         password
     }, {withCredentials: true});
-}// End function */
+}// End function 
 
 
 

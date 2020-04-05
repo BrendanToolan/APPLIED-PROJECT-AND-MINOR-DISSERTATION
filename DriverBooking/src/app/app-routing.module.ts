@@ -8,6 +8,7 @@ import { InstructorDetailsComponent } from './instructor-details/instructor-deta
 import { BookingComponent } from './booking/booking.component';
 import { RegisterPageComponent } from './register/register.component';
 import { BookingDeatilsComponent } from './booking-deatils/booking-deatils.component';
+import { HomeComponent } from './home/home.component';
 //import { AuthGuard } from './auth-guard/auth-guard.component';
 //import { HomeComponent } from './home/home.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'booking', component: BookingComponent},
   {path: 'bookings', component: BookingDeatilsComponent},
   {path: 'register', component: RegisterPageComponent },
+  {path: 'home', component: HomeComponent},
   {
    path: '',
    redirectTo: 'Login',
@@ -61,6 +63,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'register',
     pathMatch: 'full'
+   },
+   {
+     path: '',
+     redirectTo: 'home',
+     pathMatch: 'full'
    }
 ];
 
