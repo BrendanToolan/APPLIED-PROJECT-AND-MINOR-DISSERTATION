@@ -35,6 +35,7 @@ export class BookingDeatilsComponent implements OnInit {
       this.loading = false;
     });
 }
+
 DeleteBooking(id: number) {
   this.Api.deleteBookingByID(id)
   .pipe(

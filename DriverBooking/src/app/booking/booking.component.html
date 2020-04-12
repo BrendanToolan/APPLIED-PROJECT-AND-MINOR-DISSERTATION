@@ -29,19 +29,26 @@
             <mat-form-field>
               <mat-label>Select a Start time</mat-label>
               <mat-select [(value)]="selected" [(ngModel)]="MakeBooking.startTime" name="startTime">
-                <mat-option>None</mat-option>
+                <mat-option>pick</mat-option>
                 <mat-option value="9:00">9:00</mat-option>
                 <mat-option value="10:00">10:00</mat-option>
                 <mat-option value="11:00">11:00</mat-option>
+                <mat-option value="12:00">12:00</mat-option>
+                <mat-option value="14:00">14:00</mat-option>
+                <mat-option value="15:00">15:00</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field>
               <mat-label>Select a End time</mat-label>
               <mat-select [(value)]="selected" [(ngModel)]="MakeBooking.endTime" name="endTime">
-                <mat-option>None</mat-option>
+                <mat-option>pick</mat-option>
                 <mat-option value="10:00">10:00</mat-option>
                 <mat-option value="11:00">11:00</mat-option>
                 <mat-option value="12:00">12:00</mat-option>
+                <mat-option value="13:00">13:00</mat-option>
+                <mat-option value="14:00">14:00</mat-option>
+                <mat-option value="15:00">15:00</mat-option>
+                <mat-option value="16:00">16:00</mat-option>
               </mat-select>
             </mat-form-field>
             <button style="float: center" type="submit" [disabled]="!BookingForm.form.valid">Register</button>
