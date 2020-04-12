@@ -36,12 +36,21 @@ export class BookingDeatilsComponent implements OnInit {
     });
 }
 
+DeleteBooking(id: number){
+  console.log("id = ",id);
+this.Api.deleteBookingByID(id).subscribe(() =>{
+  this.ngOnInit();
+});
+}
+/*
 DeleteBooking(id: number) {
   this.Api.deleteBookingByID(id)
   .pipe(
     mergeMap(() => this.Api.getAllBookingInfo())
   )
+
   .subscribe((bookings: booking[]) => { 
+    this.router.navigateByUrl("/bookings");
     this.bookings = bookings;
     this.successMsg = 'Booking Successfully Cancelled';
   },
@@ -49,4 +58,5 @@ DeleteBooking(id: number) {
     this.errorMsg = error.error.message;
   });
   }
+*/
 }

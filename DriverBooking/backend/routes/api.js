@@ -175,10 +175,10 @@ router.get('/bookings', function (req, res) {
 router.delete('/bookings/:id', (req, res) => {
   sql.query('DELETE FROM booking WHERE bid = ?',[req.params.id],(err, rows, fields)=>{
       if (!err) 
-      res.send('Deleted');
+      res.send(err);
       else 
-          console.log(err);
-          //res.json({ message: 'Student successfully deleted'});
+          //console.log(err);
+          res.json({ message: 'Student successfully deleted'});
           //res.status(status).json(obj)
          // res.status(200).json({message: 'Student successfully deleted'}, data);
   })
