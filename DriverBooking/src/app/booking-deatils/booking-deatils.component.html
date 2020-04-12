@@ -1,13 +1,15 @@
+<div class="section">
 <mat-spinner *ngIf="loading"></mat-spinner>
 <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
 <mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+ 
 
 <div *ngIf="!loading && !error">
     <table mat-table [dataSource]="bookings" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
-      
+     
         <!-- Position Column -->
         <ng-container matColumnDef="bookingDate">
           <th mat-header-cell *matHeaderCellDef> Booking Date </th>
@@ -36,11 +38,12 @@
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
         <tr mat-row *matRowDef="let bookings; columns: columns;"></tr>
       </table>
-      </div>
+     
+      
   
   
     <div class= "button">
     <a mat-flat-button color="primary" [routerLink]="'/booking'">Make a booking</a>
-    </div>
+    </div> </div>
     <br>
-    
+    </div>

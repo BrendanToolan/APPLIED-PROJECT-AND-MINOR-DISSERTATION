@@ -1,9 +1,10 @@
-<div class="py-5">
+     <!-- form card login -->
+     
+<!--     
+     <div class="py-5">
     <div class="row">
       <div class="col-md-6 mx-auto">
-  
-  
-        <!-- form card login -->
+   
         <div class="card rounded-0">
           <div class="card-header">
             <h3 class="mb-0">Register</h3>
@@ -19,6 +20,41 @@
                 <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="enter a password" #password="ngModel"/>
               </div>
               <button style="float: center" type="submit" [disabled]="!registerForm.form.valid">Register</button>
+            </form>
+          </div>
+        
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+  <! /form card login -->
+  <!--/card-block-->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+  
+  
+        <!-- form card login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h1 class="mb-0">Register</h1>
+            <br>
+            <p>Please fill in this form to create an account.</p>
+          </div>
+          <div class="card-body">
+            <form class="register-form" (submit)="registerUser(registerForm)" #registerForm="ngForm">
+              <label>User name</label>
+              <input type="text" name="username" ngModel required="true" placeholder="Enter User name" #username="ngModel"/>
+              <br>
+              <br>
+              <div class="form-group">
+                <label>Password</label>
+                <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="Enter Password" #password="ngModel"/>
+              </div>
+              <button style="float: center" type="submit" [disabled]="!registerForm.form.valid" class="registerbtn">Register</button>
             </form>
           </div>
           <!--/card-block-->

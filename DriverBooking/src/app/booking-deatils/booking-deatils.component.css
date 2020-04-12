@@ -2,3 +2,13 @@ table {
     margin-top: 50px;
     width: 100%;
   }
+  .section {
+    height: 60%;
+  }
+
+  ._ngcontent-wkv-c6 {
+    height: 54%;
+  }
+  mat-elevation-z8{
+    height: 60%;
+  }

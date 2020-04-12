@@ -13,6 +13,7 @@ import { NgForm } from '@angular/forms';
 export class BookingComponent implements OnInit {
 
   private errorMessage;
+  public successMsg: string;
 
   constructor(private Api: ApiService, private router: Router) { }
 
@@ -40,6 +41,7 @@ getErrorMessage() {
         } 
     });
     console.log(form.value);
+    this.successMsg = 'Booking Sucessful';
     form.resetForm(); // Reset the form
   }// E
 

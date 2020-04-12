@@ -39,6 +39,7 @@ export class BookingDeatilsComponent implements OnInit {
 DeleteBooking(id: number){
   console.log("id = ",id);
 this.Api.deleteBookingByID(id).subscribe(() =>{
+  this.successMsg = 'Booking Successfully Cancelled';
   this.ngOnInit();
 });
 }
