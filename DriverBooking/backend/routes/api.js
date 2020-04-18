@@ -63,8 +63,7 @@ router.get('/instructors/:id', (req, res) => {
 router.post('/booking', function (req, res) {
   //New student object created from values passed in the body of the URL POST Request
   let new_booking = new BookingInfo ({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
+      InstructorName: req.body.InstructorName,
       email: req.body.email,
       bookingDate: req.body.bookingDate,
       startTime: req.body.startTime,
@@ -73,7 +72,7 @@ router.post('/booking', function (req, res) {
   });
 
   // Handle for null errors if any
-  if (!new_booking.firstname || !new_booking.lastname || !new_booking.email || !new_booking.bookingDate || !new_booking.startTime || !new_booking.endTime) {
+  if (!new_booking.InstructorName || !new_booking.email || !new_booking.bookingDate || !new_booking.startTime || !new_booking.endTime) {
       res.status(400).send({error: true, message: 'Please provide all criteria!'});
   } else {
     BookingInfo.createBooking(new_booking, function (err, data) {

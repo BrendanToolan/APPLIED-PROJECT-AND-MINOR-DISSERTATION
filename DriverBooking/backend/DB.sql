@@ -77,8 +77,7 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 
 	create table booking (	
 	bid int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	firstname varchar(15),
-	lastname varchar(15),
+	InstructorName varchar(20),
 	email varchar(30),
 	bookingDate Date,
 	startTime varchar(10),
@@ -88,7 +87,7 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 	foreign KEY (username) references users(username)
 	)Engine=InnoDB;
 
-		INSERT INTO booking (bid, firstname, lastname, email, bookingDate, startTime, endTime, username) VALUES
-		(1, 'ty', 'ty', 'r', '2001-01-01', '10:00', '11:00', 'test123');
+		INSERT INTO booking (bid, InstructorName, email, bookingDate, startTime, endTime, username) VALUES
+		(1, 'john smith', 'r', '2001-01-01', '10:00', '11:00', 'test123');
 		
 	show warnings;
