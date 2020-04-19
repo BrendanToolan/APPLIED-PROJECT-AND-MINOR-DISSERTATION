@@ -1,7 +1,8 @@
 let sql = require('../config/config.js');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
-var bcrypt = ('bcrypt');
-const saltRounds = 10;
+const salt =10;
 
 let UserInfo = function (user) {
     this.username = user.username;
@@ -11,9 +12,11 @@ let UserInfo = function (user) {
 
 };
 
+
 UserInfo.createUser = function createUser(newUser, result) {
     
     sql.query('INSERT INTO users set ?', newUser, function (err, res) {
+         
         if (err) {
             console.log(err);
             result(err, null);
