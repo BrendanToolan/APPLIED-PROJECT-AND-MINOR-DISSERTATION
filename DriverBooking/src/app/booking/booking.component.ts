@@ -32,12 +32,12 @@ getErrorMessage() {
   MakeBooking(form: NgForm) {
     // TO-DO Validation to be added
     // Push data to api => to be pushed to database.
-    this.Api.MakeBooking(form.value.firstname, form.value.lastname, form.value.email, form.value.bookingDate, form.value.startTime, form.value.endTime).subscribe(data => {
+    this.Api.MakeBooking(form.value.InstructorName, form.value.email, form.value.bookingDate, form.value.startTime, form.value.endTime).subscribe(data => {
         if (data) {
             // user registered, now run login page.
            // this.router.navigate(['/Locations']);
-        } else if (data.firstname === 'ER_DUP_ENTRY') {
-            this.setErrorMessage('This Student ID number already exists in the databases, please try another one');
+        } else if (data.bookingDate || data.startTime || data.endTime === 'ER_DUP_ENTRY') {
+            this.setErrorMessage('This Booking already exists in the databases, please try another one');
         } 
     });
     console.log(form.value);

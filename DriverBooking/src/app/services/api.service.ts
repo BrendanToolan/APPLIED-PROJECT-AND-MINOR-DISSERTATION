@@ -55,11 +55,10 @@ export class ApiService {
 }
 
   
-  MakeBooking(firstname: String, lastname: String, email: String, bookingDate: String, startTime: String, endTime: String): Observable<booking> {
+  MakeBooking(InstructorName: String, email: String, bookingDate: String, startTime: String, endTime: String): Observable<booking> {
 
     const book: booking = {
-      firstname: firstname,
-      lastname: lastname,
+      InstructorName: InstructorName,
       email: email,
       bookingDate: bookingDate,
       startTime: startTime,

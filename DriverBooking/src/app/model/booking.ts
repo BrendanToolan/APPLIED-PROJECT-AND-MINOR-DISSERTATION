@@ -1,7 +1,6 @@
 export class booking
 {
-    firstname: String;
-    lastname: String;
+    InstructorName: String;
     email: String;
     bookingDate: String;
     startTime: String;

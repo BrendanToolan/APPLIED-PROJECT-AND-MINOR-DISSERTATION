@@ -2,8 +2,7 @@ let sql = require('../config/config.js');
 
 let BookingInfo = function (booking) {
     //this.BookingID = booking.BookingID
-    this.firstname = booking.firstname;
-    this.lastname = booking.lastname;
+    this.InstructorName = booking.InstructorName;
     this.email = booking.email;
     this.bookingDate = new Date, booking.bookingDate;
     this.startTime = booking.startTime;
