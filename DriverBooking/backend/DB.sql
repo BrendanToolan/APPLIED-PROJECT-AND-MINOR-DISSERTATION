@@ -67,8 +67,8 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 
 	
 	create table users (
-		username varchar(10) PRIMARY KEY,
-		password varchar(20)
+		username varchar(20) PRIMARY KEY,
+		password varchar(60)
 		)Engine=InnoDB;
 
 		INSERT INTO users (username, password) VALUES 

@@ -8,7 +8,7 @@ var conection = require('../config/config.js');
 var bodyParser = require('body-parser');
 let activeSess;
 
-let bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 router.use(bodyParser.json());
 
@@ -87,12 +87,19 @@ router.post('/booking', function (req, res) {
   }// End if else
 });//End POS
 
-router.post('/register', function (req, res) {
+
+router.post('/register', async function (req, res) {
   //New student object created from values passed in the body of the URL POST Request
   let new_user = new UserInfo ({
       username: req.body.username,
       password: req.body.password,
+
   });
+
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(new_user.password, salt);
+  new_user.password = hash;
+  // new_user.save();
 
   // Handle for null errors if any
   if (!new_user.username || !new_user.password) {
@@ -108,8 +115,6 @@ router.post('/register', function (req, res) {
       });
   }// End if else
 
-  //bcrypt.hash();
-  
 });//End POS
 
 router.get('/auth', function(req, res){
@@ -155,10 +160,6 @@ router.get('/logout', function(req, res){
     res.send(false)
   }
 });
-
-/*bcrypt.compareSync(password, hash);
-bcrypt.compareSync(otherPassword, hash);*/
-
 
 router.get('/bookings', function (req, res) {
   BookingInfo.getAllBookingInfo(function (err, data) {
