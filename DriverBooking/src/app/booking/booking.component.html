@@ -1,53 +1,60 @@
       <!-- form card login -->
-      <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+    <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
       <div class="card rounded-0">
-          <h3 class="mb-0"></h3>
-          <div class="head">
+        <h3 class="mb-0"></h3>
+         
+            <div class="head">
+            <br>
             <h1>Make a Booking</h1>
-            <div>
-              <hr style="border-top: -2px; color: black; border: solid;">
-        <div class="card-body"> 
-          <form class="booking-form" (submit)="MakeBooking(BookingForm)" #BookingForm="ngForm">
+            <div> 
+              <div class="container"> 
+                
+            <br>
+             <form class="booking-form" (submit)="MakeBooking(BookingForm)" #BookingForm="ngForm">
                 <label>Instructor Name</label>
                 <input type="text" name="InstructorName" ngModel required="true" placeholder="Enter the name of Instructor you picked" #InstructorName="ngModel"/>
-            <br>
-      
+              <br>
             <div class="form-group">
-              <label>Email</label>
-              <input  type="email" name="email" ngModel required="true" placeholder="Enter Email" #email="ngModel"/>
+                <label>Email</label>
+                <input  type="email" name="email" ngModel required="true" placeholder="Enter Email" #email="ngModel"/>
             </div>
             <div class="form-group">
-              <label>Book a Date</label>
-              <input  type="date" name="booking date" ngModel required="true" placeholder="Enter Booking Date" #bookingDate="ngModel"/>
+                <label>Book a Date</label>
+                <input  type="date" name="booking date" ngModel required="true" placeholder="Enter Booking Date" #bookingDate="ngModel"/>
             </div>
             <mat-form-field>
               <mat-label>Select a Start time</mat-label>
-              <mat-select [(value)]="selected" [(ngModel)]="MakeBooking.startTime" name="startTime">
-                <mat-option>pick</mat-option>
-                <mat-option value="9:00">9:00</mat-option>
-                <mat-option value="10:00">10:00</mat-option>
-                <mat-option value="11:00">11:00</mat-option>
-                <mat-option value="12:00">12:00</mat-option>
-                <mat-option value="14:00">14:00</mat-option>
-                <mat-option value="15:00">15:00</mat-option>
-              </mat-select>
-            </mat-form-field>
+                <mat-select [(value)]="start" [(ngModel)]="MakeBooking.startTime" name="startTime" class="select">
+                  <mat-option>pick</mat-option>
+                  <mat-option value="9:00">9:00</mat-option>
+                  <mat-option value="10:00">10:00</mat-option>
+                  <mat-option value="11:00">11:00</mat-option>
+                  <mat-option value="12:00">12:00</mat-option>
+                  <mat-option value="14:00">14:00</mat-option>
+                  <mat-option value="15:00">15:00</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <br>
             <mat-form-field>
               <mat-label>Select a End time</mat-label>
-              <mat-select [(value)]="selected" [(ngModel)]="MakeBooking.endTime" name="endTime">
-                <mat-option>pick</mat-option>
-                <mat-option value="10:00">10:00</mat-option>
-                <mat-option value="11:00">11:00</mat-option>
-                <mat-option value="12:00">12:00</mat-option>
-                <mat-option value="13:00">13:00</mat-option>
-                <mat-option value="14:00">14:00</mat-option>
-                <mat-option value="15:00">15:00</mat-option>
-                <mat-option value="16:00">16:00</mat-option>
+                <mat-select [(value)]="end" [(ngModel)]="MakeBooking.endTime" name="endTime">
+                  <mat-option>pick</mat-option>
+                  <mat-option value="10:00">10:00</mat-option>
+                  <mat-option value="11:00">11:00</mat-option>
+                  <mat-option value="12:00">12:00</mat-option>
+                  <mat-option value="13:00">13:00</mat-option>
+                  <mat-option value="14:00">14:00</mat-option>
+                  <mat-option value="15:00">15:00</mat-option>
+                  <mat-option value="16:00">16:00</mat-option>
               </mat-select>
             </mat-form-field>
-            <button style="float: center" type="submit" [disabled]="!BookingForm.form.valid">Register</button>
+            <button style="float: center" type="submit" [disabled]="!BookingForm.form.valid" class="bookingbtn">Create Booking</button>
           </form>
-        </div>
+       </div>
+        <br>
+        <br> 
+      
         <!--/card-block-->
       </div>
       <!-- /form card login -->
