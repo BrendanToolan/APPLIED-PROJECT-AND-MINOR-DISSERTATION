@@ -8,7 +8,7 @@
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=firstname], input[type=surname], input[type=phoneNo]  {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -21,6 +21,22 @@ input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
+
+input[type=text]:focus, input[type=firstname]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input[type=text]:focus, input[type=surname]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input[type=text]:focus, input[type=phoneNo]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
 
 /* Overwrite default styles of hr */
 hr {

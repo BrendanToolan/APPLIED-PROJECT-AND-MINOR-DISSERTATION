@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { Observable } from 'rxjs';
 import { AuthData } from '@app/auth.data';
+import { summaryFileName } from '@angular/compiler/src/aot/util';
 //import * as bcrypt from 'bcryptjs';
 
 @Injectable({
@@ -30,10 +31,13 @@ export class AuthService {
 
     constructor(private http: HttpClient, private _router: Router){ }
 
-    registerUser(username: String, password: String): Observable<User> {
+    registerUser(username: String, firstname: String, surname: String, phoneNo: Int16Array, password: String): Observable<User> {
        
         const user: User = {
             username: username,
+            firstname: firstname,
+            surname: surname,
+            phoneNo: phoneNo,
             password: password
         };
         //needed for the cloud

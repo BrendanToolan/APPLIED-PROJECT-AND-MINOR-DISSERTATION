@@ -36,7 +36,7 @@ getErrorMessage() {
 registerUser(form: NgForm) {
   // TO-DO Validation to be added
   // Push data to api => to be pushed to database.
-  this.auth.registerUser(form.value.username, form.value.password).subscribe(data => {
+  this.auth.registerUser(form.value.username, form.value.firstname, form.value.surname, form.value.phoneNo, form.value.password).subscribe(data => {
       if (data) {
           // user registered, now run login page.
           this.router.navigate(['/Login']);
