@@ -1,4 +1,3 @@
-  
 Drop database if exists bigproject;
 create database bigproject CHARACTER SET utf8 COLLATE UTF8_GENERAL_CI ;
 use bigproject
@@ -68,11 +67,14 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 	
 	create table users (
 		username varchar(20) PRIMARY KEY,
+		firstname varchar(20),
+		surname varchar(20),
+		phoneNo int(10),
 		password varchar(60)
 		)Engine=InnoDB;
 
-		INSERT INTO users (username, password) VALUES 
-		('test123', 'test123');
+		INSERT INTO users (username, firstname, surname, phoneNO, password) VALUES 
+		('test123', 'test123', 'test123', '0871111111', 'test123');
 
 
 	create table booking (	

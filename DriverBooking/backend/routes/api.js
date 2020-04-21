@@ -91,6 +91,9 @@ router.post('/register', async function (req, res) {
   //New student object created from values passed in the body of the URL POST Request
   let new_user = new UserInfo ({
       username: req.body.username,
+      firstname: req.body.firstname,
+      surname: req.body.surname,
+      phoneNo: req.body.phoneNo,
       password: req.body.password,
 
   });
@@ -138,6 +141,7 @@ router.get('/auth', function(req, res){
 
 router.post('/Login', function(req, res){
   UsrLogin.auth(req.body.username, req.body.password, function (err, data) {
+    
     if(err) res.send(err);
 
     if(data.success){

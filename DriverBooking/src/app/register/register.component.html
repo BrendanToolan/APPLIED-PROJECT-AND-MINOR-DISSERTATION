@@ -13,11 +13,26 @@
               <label>User name</label>
               <input type="text" name="username" ngModel required="true" placeholder="Enter User name" #username="ngModel"/>
               <br>
+              <div class="form-group">
+                <label>First Name</label>
+                <input  type="firstname" name="firstname" minlength="6" ngModel required="true" #firstname="ngModel"/>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Surname</label>
+                <input  type="surname" name="surname" minlength="6" ngModel required="true" #surname="ngModel"/>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input  type="phoneNo" name="phoneNo" minlength="6" ngModel required="true" #phoneNo="ngModel"/>
+              </div>
               <br>
               <div class="form-group">
                 <label>Password</label>
                 <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="Enter Password" #password="ngModel"/>
               </div>
+              
               <button style="float: center" type="submit" [disabled]="!registerForm.form.valid" class="registerbtn">Register</button>
             </form>
           </div>

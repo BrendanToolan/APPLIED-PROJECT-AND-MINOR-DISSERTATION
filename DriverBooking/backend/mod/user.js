@@ -6,12 +6,14 @@ const salt =10;
 
 let UserInfo = function (user) {
     this.username = user.username;
+    this.firstname = user.firstname;
+    this.surname = user.surname;
+    this.phoneNo = user.phoneNo;
     this.password = user.password;
 
    // this.hash = bcrypt.hash(user.password, 10);
 
 };
-
 
 UserInfo.createUser = function createUser(newUser, result) {
     
