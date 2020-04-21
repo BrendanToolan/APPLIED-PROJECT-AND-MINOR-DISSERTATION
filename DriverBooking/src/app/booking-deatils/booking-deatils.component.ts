@@ -19,7 +19,7 @@ export class BookingDeatilsComponent implements OnInit {
   public successMsg: string;
 
   public bookings: booking[];
-  public columns = ['bookingDate', 'startTime', 'endTime', 'cancel'];
+  public columns = ['InstructorName','bookingDate', 'startTime', 'endTime', 'cancel', 'update'];
   //DataSource = this.bookings;
 
   constructor(private Api: ApiService, private router: Router) { }

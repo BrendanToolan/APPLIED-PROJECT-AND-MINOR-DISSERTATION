@@ -184,6 +184,38 @@ router.delete('/bookings/:id', (req, res) => {
   })
 });
 
+router.get('/booking-update/:id', (req, res) => {
+  sql.query('select * from booking where bid = ?', [req.params.id], (err, rows, fields) => {
+    if (!err)
+      res.send(rows);
+    else
+      console.log(err);
+  })
+});
+
+router.put('/bookings/:id', function (req, res){
+
+  let updateBooking = {
+    bookingDate: req.body.bookingDate,
+    endTime: req.body.endTime,
+    startTime: req.body.startTime
+  };
+
+  console.log(updateBooking);
+  if(!updateBooking.bookingDate){
+    res.status(400).send ({error: true, message:'Please provide a booking date'});
+  } else{
+    BookingInfo.update(updateBooking, req.params.bookingDate, req.params.endTime, req.params.startTime, function(err, data) {
+       if (err){
+    res.send({status: false, message: err.message});
+  } else{
+    res.json({status: true, message: data});
+  }
+    });
+  }
+ 
+});
+
 
 
 

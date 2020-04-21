@@ -25,6 +25,7 @@ import { AuthService } from './services/auth.service';
 import { BookingDeatilsComponent } from './booking-deatils/booking-deatils.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule, MatInputModule,MatNativeDateModule} from '@angular/material';
+import { BookingUpdateComponent } from './booking-update/booking-update.component';
 
 //import { AlertsModule } from 'angular-alert-module';
 
@@ -47,7 +48,8 @@ import {MatProgressSpinnerModule, MatInputModule,MatNativeDateModule} from '@ang
     RegisterPageComponent,
     BookingDeatilsComponent,
     HomeComponent,
-    HomeComponent
+    HomeComponent,
+    BookingUpdateComponent
     //AuthGuard
   ],
   imports: [

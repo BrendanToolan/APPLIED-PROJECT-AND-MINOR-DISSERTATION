@@ -12,3 +12,7 @@ table {
   mat-elevation-z8{
     height: 60%;
   }
+  .upBtn{
+    background-color: green;
+    color: whitesmoke;
+  }

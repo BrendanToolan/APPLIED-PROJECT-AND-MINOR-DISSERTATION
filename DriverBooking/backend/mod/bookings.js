@@ -43,4 +43,18 @@ BookingInfo.DeleteBooking = function (req, result) {
     });
 };
 
+BookingInfo.update = function (updateBooking, bookingDate, endTime, startTime, result) {
+    sql.query('UPDATE booking SET where bookingDate = ? AND endTime = ? AND startTime = ?',[updateBooking, bookingDate, endTime, startTime], function (err, res) {
+        if (err) {
+        console.log(err);
+        result(err);
+       } else {
+           console.log(res);
+           result(null, res);
+       }    
+    });
+};
+
+
+
 module.exports = BookingInfo;

@@ -9,6 +9,7 @@ import { BookingComponent } from './booking/booking.component';
 import { RegisterPageComponent } from './register/register.component';
 import { BookingDeatilsComponent } from './booking-deatils/booking-deatils.component';
 import { HomeComponent } from './home/home.component';
+import { BookingUpdateComponent } from './booking-update/booking-update.component';
 //import { AuthGuard } from './auth-guard/auth-guard.component';
 //import { HomeComponent } from './home/home.component';
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'bookings', component: BookingDeatilsComponent},
   {path: 'register', component: RegisterPageComponent },
   {path: 'home', component: HomeComponent},
+  {path: 'booking-update/:id', component: BookingUpdateComponent},
   {
    path: '',
    redirectTo: 'Login',
@@ -68,7 +70,12 @@ const routes: Routes = [
      path: '',
      redirectTo: 'home',
      pathMatch: 'full'
-   }
+   },
+   {
+    path: '',
+    redirectTo: 'booking-update/:id',
+    pathMatch: 'full'
+  }
 ];
 
 export const appRoutingModule = RouterModule.forRoot(routes);

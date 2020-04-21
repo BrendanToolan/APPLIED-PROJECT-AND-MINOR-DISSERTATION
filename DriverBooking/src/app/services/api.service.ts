@@ -5,6 +5,7 @@ import { User } from '../model/user';
 import { isLoggedIn } from '../isloggedin';
 import { Logout } from '../isloggedout';
 import { booking } from '../model/booking';
+import {bookingup} from '../model/bookingup';
 
 import { $ } from 'protractor';
 
@@ -44,6 +45,12 @@ export class ApiService {
    //return this.http.get(`${this.AWS_Cloud + '/api/instructors'}/${id}`);
   }
 
+  getBookingID(id: number): Observable<any> {
+    // return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
+     return this.http.get(`${this.Url + 'booking-update'}/${id}`);
+    //return this.http.get(`${this.AWS_Cloud + '/api/instructors'}/${id}`);
+   }
+
   isLoggedIn(): Observable<isLoggedIn>{
     return this.http.get<isLoggedIn>(this.Url + 'api/Login', {withCredentials: true});
     //return this.http.get<isLoggedIn>(this.AWS_Cloud + '/api/Login', {withCredentials: true});
@@ -55,9 +62,10 @@ export class ApiService {
 }
 
   
-  MakeBooking(InstructorName: String, email: String, bookingDate: String, startTime: String, endTime: String): Observable<booking> {
+  MakeBooking(bid: number, InstructorName: String, email: String, bookingDate: String, startTime: String, endTime: String): Observable<booking> {
 
     const book: booking = {
+      bid: bid,
       InstructorName: InstructorName,
       email: email,
       bookingDate: bookingDate,
@@ -78,4 +86,14 @@ export class ApiService {
     return this.http.delete(`${this.Url +'bookings'}/${id}`);
    // return this.http.delete(this.Url + 'bookings/' + id);
 }// end delete subject function
+
+  UpdateBooking(id: number, bookingDate: String, endTime: String, startTime: String): Observable<any>{
+
+    const book: bookingup = {
+      bookingDate: bookingDate,
+      endTime: endTime,
+      startTime: startTime
+    };
+    return this.http.put(this.Url + 'bookings/'+ id, book);
+  }
 }
