@@ -1,7 +1,7 @@
  <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto">
-  
+  <br>
    <H1>Make an Account</H1>
    <br>
    <br>
@@ -12,22 +12,18 @@
             <form class="register-form" (submit)="registerUser(registerForm)" #registerForm="ngForm">
               <label>User name</label>
               <input type="text" name="username" ngModel required="true" placeholder="Enter User name" #username="ngModel"/>
-              <br>
               <div class="form-group">
                 <label>First Name</label>
-                <input  type="firstname" name="firstname" minlength="6" ngModel required="true" #firstname="ngModel"/>
+                <input  type="firstname" name="firstname" minlength="6" ngModel required="true" placeholder="Enter First Name" #firstname="ngModel"/>
               </div>
-              <br>
               <div class="form-group">
                 <label>Surname</label>
-                <input  type="surname" name="surname" minlength="6" ngModel required="true" #surname="ngModel"/>
+                <input  type="surname" name="surname" minlength="6" ngModel required="true" placeholder="Enter Surname" #surname="ngModel"/>
               </div>
-              <br>
               <div class="form-group">
                 <label>Phone Number</label>
-                <input  type="phoneNo" name="phoneNo" minlength="6" ngModel required="true" #phoneNo="ngModel"/>
+                <input  type="phoneNo" name="phoneNo" minlength="6" ngModel required="true" placeholder="Enter Phone number" #phoneNo="ngModel"/>
               </div>
-              <br>
               <div class="form-group">
                 <label>Password</label>
                 <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="Enter Password" #password="ngModel"/>

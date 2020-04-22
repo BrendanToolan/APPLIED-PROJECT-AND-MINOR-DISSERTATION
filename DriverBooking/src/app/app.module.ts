@@ -15,17 +15,18 @@ import { InstructorComponent } from './instructor/instructor/instructor.componen
 import { HomeComponent } from './home/home.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule, MatFormFieldModule} from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {MatFormFieldModule} from '@angular/material/form-field';
 //import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AuthService } from './services/auth.service';
 import { BookingDeatilsComponent } from './booking-deatils/booking-deatils.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule, MatInputModule,MatNativeDateModule} from '@angular/material';
-import { BookingUpdateComponent } from './booking-update/booking-update.component';
+import { BookingUpdateComponent } from './booking-update/booking-update.component'; 
 
 //import { AlertsModule } from 'angular-alert-module';
 
@@ -73,7 +74,8 @@ import { BookingUpdateComponent } from './booking-update/booking-update.componen
     MatTableModule,
     MatProgressSpinnerModule, 
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatFormFieldModule
     //AlertsModule.forRoot(),
     
   ],
