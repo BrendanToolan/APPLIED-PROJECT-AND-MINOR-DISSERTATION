@@ -6,10 +6,10 @@
       <h1>Update Your Booking</h1>
     </mat-card-header>
   
-    <mat-form-field>
-    <form class="register-form" (submit)="UpdateBooking(updateForm)" #registerForm="ngForm">
-        <input matInput type="date" name="bookingDate" ngModel="{{bookingup.bookingDate | date: dd/MM/yyyy }}" placeholder="Your Prevoius date {{bookingup.bookingDate | date:MM//dd/yyyy}}" #bookingDate="ngModel"/>
-    </form>
+   
+    <form class="update-form" (submit)="UpdateBooking(updateForm)" #updateForm="ngForm">
+     <mat-form-field>
+    <input matInput type="date" name="bookingDate" ngModel="{{bookingup.bookingDate | date: dd/MM/yyyy }}" placeholder="Your Prevoius date {{bookingup.bookingDate | date:MM//dd/yyyy}}" #bookingDate="ngModel"/>
     </mat-form-field>
     <br>
     <mat-form-field>
@@ -38,5 +38,9 @@
                 <mat-option value="16:00">16:00</mat-option>
               </mat-select>
             </mat-form-field>
-    
+            <br>
+            <br>
+
+            <button mat-raised-button color="accent" [disabled]="!updateForm.form.valid">Update booking</button>
+     </form>
   

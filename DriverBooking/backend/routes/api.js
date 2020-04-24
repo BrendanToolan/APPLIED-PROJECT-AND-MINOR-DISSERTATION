@@ -11,6 +11,8 @@ let activeSess;
 const bcrypt = require('bcryptjs');
 
 router.use(bodyParser.json());
+var bodyParser = require('body-parser');router.use(bodyParser.json());
+
 
 //Class for all routers
 
@@ -197,7 +199,21 @@ router.get('/booking-update/:id', (req, res) => {
   })
 });
 
-router.put('/bookings/:id', function (req, res){
+/*
+router.put('/booking-update/:id', (req, res) => {
+  let book = req.body;
+  var sql = ("UPDATE booking SET @bid =?; SET @bookingDate = ?; SET @startTime = ?; SET @endTime =?; where bid = ?");
+
+  conection.query(sql,[book.bid, book.bookingDate, book.startTime, book.endTime], (err, rows, fields) => {
+    if (!err)
+    res.send ('updated');
+    else 
+    console.log(error);
+  })
+});
+*/
+
+router.put('/booking-update/:id', function (req, res){
 
   let updateBooking = {
     bookingDate: req.body.bookingDate,
@@ -209,7 +225,7 @@ router.put('/bookings/:id', function (req, res){
   if(!updateBooking.bookingDate){
     res.status(400).send ({error: true, message:'Please provide a booking date'});
   } else{
-    BookingInfo.update(updateBooking, req.params.bookingDate, req.params.endTime, req.params.startTime, function(err, data) {
+    BookingInfo.update(updateBooking, req.params.bid, function(err, data) {
        if (err){
     res.send({status: false, message: err.message});
   } else{
@@ -219,7 +235,6 @@ router.put('/bookings/:id', function (req, res){
   }
  
 });
-
 
 
 

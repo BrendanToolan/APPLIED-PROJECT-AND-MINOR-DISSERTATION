@@ -6,6 +6,7 @@ import { isLoggedIn } from '../isloggedin';
 import { Logout } from '../isloggedout';
 import { booking } from '../model/booking';
 import {bookingup} from '../model/bookingup';
+import {Processed} from '../processed';
 
 import { $ } from 'protractor';
 
@@ -87,13 +88,14 @@ export class ApiService {
    // return this.http.delete(this.Url + 'bookings/' + id);
 }// end delete subject function
 
-  UpdateBooking(id: number, bookingDate: String, endTime: String, startTime: String): Observable<any>{
+  UpdateBooking(bid: number, bookingDate: String, startTime: String, endTime: String): Observable<Processed>{
 
     const book: bookingup = {
+      bid: bid,
       bookingDate: bookingDate,
       endTime: endTime,
       startTime: startTime
     };
-    return this.http.put(this.Url + 'bookings/'+ id, book);
+    return this.http.put<Processed>(`${this.Url +'booking-update'}/${bid}`, book);
   }
 }
