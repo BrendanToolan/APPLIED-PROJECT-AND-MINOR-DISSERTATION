@@ -153,6 +153,17 @@ router.post('/Login', function(req, res){
     } else {
       res.send(data)
     }
+
+    UsrLogin.comparePasswrd(req.body.password, UserInfo.password, function(err, isMatch){
+      if(err) throw err;
+      if(isMatch){
+        //return done(null, user);
+      } else{
+        //return done(null, false, {message:'invalid'})
+      }
+
+    })
+
   });
 });
 

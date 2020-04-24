@@ -1,5 +1,5 @@
 let sql = require('../config/config.js');
-//let bcrypt = require('bcryptjs'); 
+let bcrypt = require('bcryptjs'); 
 
 //const password = "password123";
 
@@ -29,6 +29,13 @@ UsrLogin.auth = function(username, password, result) {
         }
     });
 };
+
+UsrLogin.comparePasswrd = function(password, hash, callback){
+    bcrypt.compare(password, hash, function(err, isMatch) {
+     //   if(err) throw err;
+        callback(null, isMatch);
+    });
+}
 
 //hashing code 
 /*bcrypt.hash(password, 8, (err, hashedPassword) => {
