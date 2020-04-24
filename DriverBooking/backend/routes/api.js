@@ -199,6 +199,28 @@ router.get('/booking-update/:id', (req, res) => {
   })
 });
 
+router.post('/booking-update/:id', (req, res) => {
+  const bookingDate = req.body.bookingDate;
+  const startTime = req.body.startTime;
+  const endTime = req.body.endTime;
+  const bid = req.params.id;
+
+  conection.query('UPDATE `booking` SET bookingDate = ?, startTime = ?, endTime = ? WHERE bid = ?', [bookingDate, startTime, endTime, bid], (err, results) =>{
+    if (err) throw err;
+    if(results.changedRows === 1){
+      console.log('Booking Updated');
+    }
+  });
+});
+
+/*
+router.post('/booking-update/:id', (req, res) => {
+  sql = "UPDATE booking SET bookingDate='"+req.body.bookingDate+"', endTime'"+req.body.endTime+"', startTime='"+req.body.startTime+"' WHERE bid="+req.body.id;
+  let query = conection.query(sql, (err, results) => {
+    if(err) throw err;
+  });
+});
+*/
 /*
 router.put('/booking-update/:id', (req, res) => {
   let book = req.body;
@@ -212,8 +234,8 @@ router.put('/booking-update/:id', (req, res) => {
   })
 });
 */
-
-router.put('/booking-update/:id', function (req, res){
+/*
+router.put('/bookings/:id', function (req, res){
 
   let updateBooking = {
     bookingDate: req.body.bookingDate,
@@ -235,6 +257,7 @@ router.put('/booking-update/:id', function (req, res){
   }
  
 });
+*/
 
 
 

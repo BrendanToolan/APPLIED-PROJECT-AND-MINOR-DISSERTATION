@@ -1,7 +1,7 @@
-export interface bookingup
+export class bookingup
 {
-        bid?: number,
-        bookingDate?: String,
-        startTime?: String,
-        endTime?: String,
+        //bid?: number,
+        bookingDate: String;
+        startTime: String;
+        endTime: String;
 };

@@ -15,6 +15,8 @@ export class BookingUpdateComponent implements OnInit {
   id: any = [];
   app: any = [];
   private errorMessage;
+  public successMsg: string;
+
 
   setErrorMessage (error: String){
     this.errorMessage = error;
@@ -25,7 +27,7 @@ export class BookingUpdateComponent implements OnInit {
   }
 
   book: bookingup ={
-    bid: 0,
+   // bid: 0,
     bookingDate: '',
     startTime: '',
     endTime: '',
@@ -39,7 +41,7 @@ export class BookingUpdateComponent implements OnInit {
     this.api.UpdateBooking(this.book[0].bid, form.value.bookingDate, form.value.startTime, form.value.endTime).subscribe(data => {
       console.log(data)
       if(data.status){
-      // this.router.navigate(['/bookings']);
+       this.router.navigate(['/bookings']);
        console.log(this.book);
       } else if(data.errorCode === 'Duplicate Entry'){
         this.setErrorMessage('this booking already exists');
@@ -47,6 +49,8 @@ export class BookingUpdateComponent implements OnInit {
         this.setErrorMessage(data.message);
       }
     });
+    console.log(form.value);
+    this.successMsg = 'Booking Successfully Updated';
 
   }
 

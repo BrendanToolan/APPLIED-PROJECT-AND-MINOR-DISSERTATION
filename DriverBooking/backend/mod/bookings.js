@@ -45,7 +45,7 @@ BookingInfo.DeleteBooking = function (req, result) {
 
 
 BookingInfo.update = function (updateBooking, bid, result) {
-    sql.query('UPDATE booking SET ? where bid = ?',[updateBooking, bid], function (err, res) {
+    sql.query("UPDATE booking SET ? where bid = ?",[updateBooking, bid], function (err, res) {
         if (err) {
         console.log(err);
         result(err);

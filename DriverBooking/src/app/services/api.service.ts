@@ -88,14 +88,14 @@ export class ApiService {
    // return this.http.delete(this.Url + 'bookings/' + id);
 }// end delete subject function
 
-  UpdateBooking(bid: number, bookingDate: String, startTime: String, endTime: String): Observable<Processed>{
+  UpdateBooking(id: number, bookingDate: String, startTime: String, endTime: String): Observable<Processed>{
 
     const book: bookingup = {
-      bid: bid,
+     // bid: bid,
       bookingDate: bookingDate,
       endTime: endTime,
       startTime: startTime
     };
-    return this.http.put<Processed>(`${this.Url +'booking-update'}/${bid}`, book);
+    return this.http.post<Processed>(`${this.Url +'booking-update'}/${id}`, book);
   }
 }
