@@ -1,10 +1,29 @@
 table { 
     margin-top: 50px;
     width: 100%;
+    background-color: slategrey;
+    opacity: 85%;
+    border: outset;
   }
+  
   .section {
-    height: 60%;
+    height: 100%;
+    
   }
+
+  .mkbookBtn{
+    background-color: green;
+    color: whitesmoke;
+  }
+
+  .tableText {
+    color: antiquewhite;
+    font-size: small;
+    font-style: initial;
+    font-stretch: unset;
+    
+  }
+
 
   ._ngcontent-wkv-c6 {
     height: 54%;
@@ -16,3 +35,9 @@ table {
     background-color: green;
     color: whitesmoke;
   }
+
+.th{
+  color: gainsboro;
+  font-size: medium;
+  font-style: oblique;
+}

@@ -30,13 +30,13 @@ UsrLogin.auth = function(username, password, result) {
     });
 };
 
-UsrLogin.comparePasswrd = function(password, hash, callback){
+/*UsrLogin.comparePasswrd = function(password, hash, callback){
     bcrypt.compare(password, hash, function(err, isMatch) {
      //   if(err) throw err;
         callback(null, isMatch);
     });
 }
-
+*/
 //hashing code 
 /*bcrypt.hash(password, 8, (err, hashedPassword) => {
     if (err) {
