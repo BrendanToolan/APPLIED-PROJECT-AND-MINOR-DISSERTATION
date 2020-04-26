@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'instructors/:id', component: InstructorDetailsComponent},
   {path: 'instructors', component: InstructorComponent},
   {path: 'booking', component: BookingComponent},
+  {path: 'booking/:id', component: BookingComponent},
   {path: 'bookings', component: BookingDeatilsComponent},
   {path: 'register', component: RegisterPageComponent },
   {path: 'home', component: HomeComponent},
@@ -49,6 +50,11 @@ const routes: Routes = [
    {
     path: '',
     redirectTo: 'booking',
+    pathMatch: 'full'
+   },
+   {
+    path: '',
+    redirectTo: 'booking/:id',
     pathMatch: 'full'
    },
    {

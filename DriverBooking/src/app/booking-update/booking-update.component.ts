@@ -68,5 +68,4 @@ export class BookingUpdateComponent implements OnInit {
       )
     }
   }
-
 }

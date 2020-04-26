@@ -46,6 +46,12 @@ export class ApiService {
    //return this.http.get(`${this.AWS_Cloud + '/api/instructors'}/${id}`);
   }
 
+  getInstructorForBooking(id: number) {
+    // return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
+     return this.http.get(`${this.Url + 'booking'}/${id}`);
+    //return this.http.get(`${this.AWS_Cloud + '/api/instructors'}/${id}`);
+   }
+
   getBookingID(id: number): Observable<any> {
     // return this.http.get(`${this.Url + 'instructors'}/${InstructorId}`);
      return this.http.get(`${this.Url + 'booking-update'}/${id}`);

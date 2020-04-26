@@ -40,29 +40,4 @@ export class InstructorDetailsComponent implements OnInit {
       )
     }
   }
-  /*  this.route.queryParams.subscribe((queryParams: Params) => {
-      let id = queryParams['id'];
-      this.Api.get(id)
-        .subscribe(data => {
-          this.id = (data);
-          console.log(data)
-        });
-    });
-  }
-
-  
-
-  getInstructor(InstructorId){
-    this.Api.get(InstructorId)
-    .subscribe(
-      data => {
-        //console.log(this.Api.Url)
-        this.CurrentInstructor = data;
-        console.log('Data recived from server.', data);
-      },
-      error =>{
-        console.log(error);
-      });
-  }
-*/
 }

@@ -62,8 +62,17 @@ router.get('/instructors/:id', (req, res) => {
   })
 });
 
+router.get('/booking/:id', (req, res) => {
+  sql.query('select * from instructor WHERE id = ?', [req.params.id], (err, rows, fields) => {
+    if (!err)
+      res.send(rows);
+    else
+      console.log(err);
+  })
+});
+
 router.post('/booking', function (req, res) {
-  //New student object created from values passed in the body of the URL POST Request
+  //New booking object created from values passed in the body of the URL POST Request
   let new_booking = new BookingInfo ({
       InstructorName: req.body.InstructorName,
       email: req.body.email,
@@ -90,7 +99,7 @@ router.post('/booking', function (req, res) {
 
 
 router.post('/register', async function (req, res) {
-  //New student object created from values passed in the body of the URL POST Request
+  //New user object created from values passed in the body of the URL POST Request
   let new_user = new UserInfo ({
       username: req.body.username,
       firstname: req.body.firstname,

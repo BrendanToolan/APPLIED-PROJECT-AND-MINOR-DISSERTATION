@@ -8,3 +8,11 @@ export interface instructor {
     Email?: string,
     picture_path?: string
 };
+
+export class bookingup
+{
+        //bid?: number,
+        bookingDate: String;
+        startTime: String;
+        endTime: String;
+};
