@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { NgForm } from '@angular/forms';
-import { instructor } from '@app/model/instructor';
+import { instructorID } from '..//model/instructorID';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -17,9 +17,9 @@ export class BookingComponent implements OnInit {
   public successMsg: string;
   id: any = [];
 
-  intst: instructor = {
+  int: instructorID = {
     name:  '',
-    lastName: ''
+    lastName: '',
    };
 
    constructor(private router: Router, private route: ActivatedRoute, private api: ApiService) { }
@@ -31,22 +31,6 @@ export class BookingComponent implements OnInit {
 getErrorMessage() {
     return this.errorMessage;
 }
-
-
-  ngOnInit() {
-    const params = this.route.snapshot.params
-    if(params.id){
-      this.api.getInstructorForBooking(params.id)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.intst = res;
-          this.id = res;
-        },
-        err => console.log(err)
-      )
-    }
-  }
 
   MakeBooking(form: NgForm) {
     // TO-DO Validation to be added
@@ -63,5 +47,21 @@ getErrorMessage() {
     this.successMsg = 'Booking Sucessful';
     form.resetForm(); // Reset the form
   }// E
+
+  ngOnInit() {
+    const params = this.route.snapshot.params
+    if(params.id){
+      this.api.getInstructorForBooking(params.id)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.int = res;
+          this.id = res;
+          console.log("yo = "+ this.id)
+        },
+        err => console.log(err)
+      )
+    }
+  }
 
 }

@@ -14,13 +14,17 @@ table {
   .mkbookBtn{
     background-color: green;
     color: whitesmoke;
+    align-items: center;
   }
-
+  .button{
+    padding-left: 40%;
+  }
   .tableText {
-    color: antiquewhite;
+    color: white;
     font-size: small;
     font-style: initial;
     font-stretch: unset;
+    font-weight: 600;
     
   }
 

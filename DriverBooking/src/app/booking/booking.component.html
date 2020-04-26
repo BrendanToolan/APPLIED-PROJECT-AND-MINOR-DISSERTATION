@@ -1,19 +1,17 @@
       <!-- form card login -->
     <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
       <div class="card rounded-0">
-        <mat-card class="example-card-two" *ngFor="let instructor of id"></mat-card>
-        <p>{{instructor.name}}</p>
         <h3 class="mb-0"></h3>
             <div class="head">
             <br>
             <h1>Make a Booking</h1>
             <div> 
-              <div class="container"> 
+              <div class="container" *ngFor="let instructorID of id"> 
                 
             <br>
              <form class="booking-form" (submit)="MakeBooking(BookingForm)" #BookingForm="ngForm">
                 <label>Instructor Name</label>
-                <input type="text" name="InstructorName" ngModel="{{Instructor.name}}{{instructor.name}}" required="true" #InstructorName="ngModel"/>
+                <input type="text" name="InstructorName" ngModel="{{instructorID.name}} {{instructorID.lastName}}" required="true" #InstructorName="ngModel"/>
               <br>
             <div class="form-group">
                 <label>Email</label>
