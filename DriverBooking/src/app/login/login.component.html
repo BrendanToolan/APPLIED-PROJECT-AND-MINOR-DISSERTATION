@@ -1,12 +1,16 @@
-<div class="py-5">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+<br>
+ <H1>Login</H1>
+ <br>
+ <br>
   
   
         <!-- form card login -->
         <div class="card rounded-0">
           <div class="card-header">
-            <h3 class="mb-0">Login</h3>
+            
           </div>
           <div class="card-body">
             <form class="login-form" (submit)="loginUser(loginForm)" #loginForm="ngForm">
@@ -18,7 +22,7 @@
                 <label>Password</label>
                 <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="enter a password" #password="ngModel"/>
               </div>
-              <button style="float: center" type="submit" [disabled]="!loginForm.form.valid">Login</button>
+              <button style="float: center" type="submit" [disabled]="!loginForm.form.valid" class= "loginBtn">Login</button>
             </form>
           </div>
           <!--/card-block-->

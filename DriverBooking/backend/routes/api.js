@@ -112,6 +112,7 @@ router.post('/register', async function (req, res) {
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(new_user.password, salt);
   new_user.password = hash;
+
   // new_user.save();
 
   // Handle for null errors if any
@@ -153,6 +154,10 @@ router.get('/auth', function(req, res){
 router.post('/Login', function(req, res){
   UsrLogin.auth(req.body.username, req.body.password, function (err, data) {
     
+    const hash = UserInfo.password;
+
+    const passwrdCompare = bcrypt.compareSync(req.body.password, hash)
+
     if(err) res.send(err);
 
     if(data.success){
@@ -162,6 +167,16 @@ router.post('/Login', function(req, res){
     } else {
       res.send(data)
     }
+
+    /*UsrLogin.comparePasswrd(req.body.password, hash, function(err, isMatch){
+      if(err) throw err;
+      if(isMatch){
+        //return done(null, user);
+      } else{
+        //return done(null, false, {message:'invalid'})
+      }
+    })*/
+
   });
 });
 
