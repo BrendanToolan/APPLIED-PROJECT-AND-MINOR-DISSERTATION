@@ -85,12 +85,10 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 	bookingDate Date,
 	startTime varchar(10),
 	endTime varchar(10),
-	username varchar(10),
-
-	foreign KEY (username) references users(username)
+	CONSTRAINT booking_unique UNIQUE (bookingDate, startTime, endTime)
 	)Engine=InnoDB;
 
-		INSERT INTO booking (bid, InstructorName, email, bookingDate, startTime, endTime, username) VALUES
-		(1, 'john smith', 'r', '2001-01-01', '10:00', '11:00', 'test123');
+		INSERT INTO booking (bid, InstructorName, email, bookingDate, startTime, endTime) VALUES
+		(1, 'john smith', 'r', '2001-01-01', '10:00', '11:00');
 		
 	show warnings;

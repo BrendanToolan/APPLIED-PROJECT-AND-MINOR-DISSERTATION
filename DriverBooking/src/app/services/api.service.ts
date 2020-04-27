@@ -69,7 +69,7 @@ export class ApiService {
 }
 
   
-  MakeBooking(bid: number, InstructorName: String, email: String, bookingDate: String, startTime: String, endTime: String): Observable<booking> {
+  MakeBooking(bid: number, InstructorName: String, email: String, bookingDate: String, startTime: String, endTime: String): Observable<Processed> {
 
     const book: booking = {
       bid: bid,
@@ -80,7 +80,7 @@ export class ApiService {
       endTime: endTime
     };
 
-    return this.http.post<booking>(this.bookUrl, book);
+    return this.http.post<Processed>(this.bookUrl, book);
   }
 
   getAllBookingInfo(): Observable<any>{

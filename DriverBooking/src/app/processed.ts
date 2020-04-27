@@ -1,5 +1,5 @@
 export interface Processed {
-    status: boolean;
-    errorCode: string;
-    message: string;
-}
+    status?: boolean,
+    errorCode?: string,
+    message?: string
+};

@@ -245,7 +245,9 @@ router.post('/booking-update/:id', (req, res) => {
   const bid = req.params.id;
 
   conection.query('UPDATE `booking` SET bookingDate = ?, startTime = ?, endTime = ? WHERE bid = ?', [bookingDate, startTime, endTime, bid], (err, results) =>{
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
     if(results.changedRows === 1){
       console.log('Booking Updated');
     }
