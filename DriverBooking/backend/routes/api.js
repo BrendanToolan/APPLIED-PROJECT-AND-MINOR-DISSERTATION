@@ -100,18 +100,21 @@ router.post('/booking', function (req, res) {
 
 router.post('/register', async function (req, res) {
   //New user object created from values passed in the body of the URL POST Request
+  
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(req.body.password, salt);
+  req.body.password = hash;
+  
   let new_user = new UserInfo ({
       username: req.body.username,
       firstname: req.body.firstname,
       surname: req.body.surname,
       phoneNo: req.body.phoneNo,
-      password: req.body.password,
+      password: hash,
 
   });
 
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(new_user.password, salt);
-  new_user.password = hash;
+  
 
   //new_user.save();
 
@@ -158,11 +161,11 @@ router.post('/Login', async function(req, res, next){
     password : req.body.password,
   })
 
-  const pwdMatch = await bcrypt.compare(login_user.password, UserInfo.hash);
+  const pwdMatch = await bcrypt.compare(login_user.password, req.body.password);
   login_user.password = pwdMatch;
   
   
-  UsrLogin.auth(req.body.username, req.body.password, async function (err, data) {
+  UsrLogin.auth(req.body.username, pwdMatch, async function (err, data) {
   
    /* bcrypt.compare(req.body.password, data.password, function(err, results){
       if (err) throw err;
