@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '@app/services/api.service';
 import {bookingup} from '../model/bookingup';
 import {NgForm} from '@angular/forms';
+import {MatDialogModule} from '@angular/material';
 
 @Component({
   selector: 'app-booking-update',
@@ -16,6 +17,7 @@ export class BookingUpdateComponent implements OnInit {
   app: any = [];
   private errorMessage;
   public successMsg: string;
+  public errorMsg: string;
 
 
   setErrorMessage (error: String){
@@ -35,23 +37,21 @@ export class BookingUpdateComponent implements OnInit {
 
   
 
-  constructor(private router: Router, private route: ActivatedRoute, private api: ApiService) { }
-
+  constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, public dialog: MatDialogModule) { }
   UpdateBooking(form: NgForm){
     this.api.UpdateBooking(this.book[0].bid, form.value.bookingDate, form.value.startTime, form.value.endTime).subscribe(data => {
       console.log(data)
       if(data.status){
-       this.router.navigate(['/bookings']);
-       console.log(this.book);
-      } else if(data.errorCode === 'Duplicate Entry'){
-        this.setErrorMessage('this booking already exists');
+        this.successMsg = 'Booking Successfully Updated';
+      // console.log(this.book);
+      } else if(data.errorCode === 'ER_DUP_ENTRY'){
+        //this.setErrorMessage('this booking already exists');
+        this.errorMsg = 'This Booking Already exists try another';
       } else{
         this.setErrorMessage(data.message);
       }
     });
     console.log(form.value);
-    this.successMsg = 'Booking Successfully Updated';
-
   }
 
   ngOnInit() {

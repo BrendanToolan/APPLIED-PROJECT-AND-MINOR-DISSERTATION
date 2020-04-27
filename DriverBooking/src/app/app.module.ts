@@ -15,7 +15,7 @@ import { InstructorComponent } from './instructor/instructor/instructor.componen
 import { HomeComponent } from './home/home.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule} from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule , MatCardModule, MatGridListModule, MatDialogModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -75,6 +75,7 @@ import { BookingUpdateComponent } from './booking-update/booking-update.componen
     MatProgressSpinnerModule, 
     MatInputModule,
     MatNativeDateModule,
+    MatDialogModule,
     MatFormFieldModule
     //AlertsModule.forRoot(),
     

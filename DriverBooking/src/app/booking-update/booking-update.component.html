@@ -1,4 +1,5 @@
 <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
 
 <div class= "img">
   <mat-card class="example-card-two" *ngFor="let bookingup of id">
@@ -9,6 +10,7 @@
   
    
     <form class="update-form" (submit)="UpdateBooking(updateForm)" #updateForm="ngForm">
+      <mat-error *ngIf="bookinDate?.invalid">{{getErrorMessage()}}</mat-error>
      <mat-form-field>
     <input matInput type="date" name="bookingDate" ngModel="{{bookingup.bookingDate | date: dd/MM/yyyy }}" placeholder="Your Prevoius date {{bookingup.bookingDate | date:MM//dd/yyyy}}" #bookingDate="ngModel"/>
     </mat-form-field>
