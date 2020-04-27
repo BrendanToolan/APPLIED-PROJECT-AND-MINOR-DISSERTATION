@@ -11,7 +11,8 @@
     npm install cookie-parser -g - (needs to be installed in the backend and outside the backend)
     npm install node-gyp -g
     npm i --S bcrypt ( for password hashing )
-    npm install -i md5
+    npm i --S bcryptjs ( for password hashing )
+
 */
 
 const express = require('express');

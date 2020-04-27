@@ -13,6 +13,8 @@
 
 }
 
+
+
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=firstname], input[type=surname], input[type=phoneNo]  {
   width: 100%;
