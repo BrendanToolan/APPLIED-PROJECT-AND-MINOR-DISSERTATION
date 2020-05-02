@@ -100,23 +100,26 @@ router.post('/booking', function (req, res) {
 
 router.post('/register', async function (req, res) {
   //New user object created from values passed in the body of the URL POST Request
+  
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(req.body.password, salt);
+  req.body.password = hash;
+  
   let new_user = new UserInfo ({
       username: req.body.username,
       firstname: req.body.firstname,
       surname: req.body.surname,
       phoneNo: req.body.phoneNo,
-      password: req.body.password,
+      password: hash,
 
   });
 
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(new_user.password, salt);
-  new_user.password = hash;
+  
 
-  // new_user.save();
+  //new_user.save();
 
   // Handle for null errors if any
-  if (!new_user.username || !new_user.password) {
+  if (!new_user.username || !hash) {
       res.status(400).send({error: true, message: 'Please provide all criteria!'});
   } else {
       UserInfo.createUser(new_user, function (err, data) {
@@ -151,13 +154,28 @@ router.get('/auth', function(req, res){
 });
 
 
-router.post('/Login', function(req, res){
-  UsrLogin.auth(req.body.username, req.body.password, function (err, data) {
-    
-    const hash = UserInfo.password;
+router.post('/Login', async function(req, res, next){
 
-    const passwrdCompare = bcrypt.compareSync(req.body.password, hash)
+  let login_user = new UsrLogin({
+    username : req.body.username,
+    password : req.body.password,
+  })
 
+  const pwdMatch = await bcrypt.compare(login_user.password, req.body.password);
+  login_user.password = pwdMatch;
+  
+  
+  UsrLogin.auth(req.body.username, pwdMatch, async function (err, data) {
+  
+   /* bcrypt.compare(req.body.password, data.password, function(err, results){
+      if (err) throw err;
+      if(results === true){
+        req.session.user ={
+          username: data.username
+        }
+      }
+    })
+    */
     if(err) res.send(err);
 
     if(data.success){
@@ -168,14 +186,14 @@ router.post('/Login', function(req, res){
       res.send(data)
     }
 
-    /*UsrLogin.comparePasswrd(req.body.password, hash, function(err, isMatch){
+   /* UsrLogin.comparePasswrd(req.body.password.toString(), UserInfo.hash, async function(err, data){
       if(err) throw err;
-      if(isMatch){
-        //return done(null, user);
+      if(data){
+       // return done(null, UserInfo.new_user);
       } else{
         //return done(null, false, {message:'invalid'})
       }
-    })*/
+    });*/
 
   });
 });
