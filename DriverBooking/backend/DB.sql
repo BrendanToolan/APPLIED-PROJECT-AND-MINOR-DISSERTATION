@@ -70,8 +70,9 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 		username varchar(20) PRIMARY KEY,
 		firstname varchar(20),
 		surname varchar(20),
-		phoneNo int(10),
-		password varchar(60)
+		phoneNo varchar(15),
+		password varchar(60),
+		CONSTRAINT users_unique UNIQUE (username)
 		)Engine=InnoDB;
 
 		INSERT INTO users (username, firstname, surname, phoneNO, password) VALUES 

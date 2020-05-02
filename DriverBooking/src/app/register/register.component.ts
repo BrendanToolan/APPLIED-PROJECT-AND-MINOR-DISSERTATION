@@ -15,6 +15,8 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterPageComponent implements OnInit {
 
   private errorMessage;
+  public successMsg: string;
+  public errorMsg: string;
 
   
   constructor(private auth: AuthService, private router: Router) {
@@ -38,10 +40,11 @@ registerUser(form: NgForm) {
   // Push data to api => to be pushed to database.
   this.auth.registerUser(form.value.username, form.value.firstname, form.value.surname, form.value.phoneNo, form.value.password).subscribe(data => {
       if (data) {
-          // user registered, now run login page.
+          this.successMsg = 'Account Successfully Created';
           this.router.navigate(['/Login']);
-      } else if (data.username === 'ER_DUP_ENTRY') {
-          this.setErrorMessage('Please use another User Names');
+      } else if (data.errorCode === 'ER_DUP_ENTRY') {
+         // this.setErrorMessage('Please use another User Names');
+          this.errorMsg = 'This Username Already exists try another';
       } 
   });
   console.log(form.value);

@@ -31,7 +31,7 @@ export class BookingDeatilsComponent implements OnInit {
       this.loading = false;
     },
     (error: ErrorEvent) => {
-      this.errorMsg = error.error.message;
+      this.errorMsg = 'Cannot load bookings';
       this.loading = false;
     });
 }
@@ -43,21 +43,4 @@ this.Api.deleteBookingByID(id).subscribe(() =>{
   this.ngOnInit();
 });
 }
-/*
-DeleteBooking(id: number) {
-  this.Api.deleteBookingByID(id)
-  .pipe(
-    mergeMap(() => this.Api.getAllBookingInfo())
-  )
-
-  .subscribe((bookings: booking[]) => { 
-    this.router.navigateByUrl("/bookings");
-    this.bookings = bookings;
-    this.successMsg = 'Booking Successfully Cancelled';
-  },
-  (error: ErrorEvent) => {
-    this.errorMsg = error.error.message;
-  });
-  }
-*/
 }

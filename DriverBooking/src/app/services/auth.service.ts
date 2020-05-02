@@ -5,6 +5,7 @@ import { User } from '../model/user';
 import { Observable } from 'rxjs';
 import { AuthData } from '@app/auth.data';
 import { summaryFileName } from '@angular/compiler/src/aot/util';
+import {Processed} from '../processed';
 //import * as bcrypt from 'bcryptjs';
 
 @Injectable({
@@ -31,7 +32,7 @@ export class AuthService {
 
     constructor(private http: HttpClient, private _router: Router){ }
 
-    registerUser(username: String, firstname: String, surname: String, phoneNo: Int16Array, password: String): Observable<User> {
+    registerUser(username: String, firstname: String, surname: String, phoneNo: String, password: String): Observable<Processed> {
        
         const user: User = {
             username: username,
@@ -43,7 +44,7 @@ export class AuthService {
         //needed for the cloud
         //return this.http.post<User>(this.AWS_Cloud_reg, user);
        //needed for locally
-        return this.http.post<User>(this._regUrl, user);
+        return this.http.post<Processed>(this._regUrl, user);
     }
 
     //needed for the cloud
