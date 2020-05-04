@@ -114,10 +114,6 @@ router.post('/register', async function (req, res) {
 
   });
 
-  
-
-  //new_user.save();
-
   // Handle for null errors if any
   if (!new_user.username || !hash) {
       res.status(400).send({error: true, message: 'Please provide all criteria!'});
@@ -167,15 +163,6 @@ router.post('/Login', async function(req, res, next){
   
   UsrLogin.auth(req.body.username, pwdMatch, async function (err, data) {
   
-   /* bcrypt.compare(req.body.password, data.password, function(err, results){
-      if (err) throw err;
-      if(results === true){
-        req.session.user ={
-          username: data.username
-        }
-      }
-    })
-    */
     if(err) res.send(err);
 
     if(data.success){
@@ -185,15 +172,6 @@ router.post('/Login', async function(req, res, next){
     } else {
       res.send(data)
     }
-
-   /* UsrLogin.comparePasswrd(req.body.password.toString(), UserInfo.hash, async function(err, data){
-      if(err) throw err;
-      if(data){
-       // return done(null, UserInfo.new_user);
-      } else{
-        //return done(null, false, {message:'invalid'})
-      }
-    });*/
 
   });
 });

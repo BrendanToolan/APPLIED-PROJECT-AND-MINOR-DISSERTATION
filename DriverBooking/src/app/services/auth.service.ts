@@ -31,7 +31,7 @@ export class AuthService {
 
     constructor(private http: HttpClient, private _router: Router){ }
 
-    registerUser(username: String, firstname: String, surname: String, phoneNo: Int16Array, password: String): Observable<User> {
+    registerUser(username: String, firstname: String, surname: String, phoneNo: String, password: String): Observable<User> {
        
         const user: User = {
             username: username,

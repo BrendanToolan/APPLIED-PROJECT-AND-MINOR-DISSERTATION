@@ -1,8 +1,4 @@
 let sql = require('../config/config.js');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-
-const salt =10;
 
 let UserInfo = function (user) {
     this.username = user.username;
@@ -43,9 +39,6 @@ UserInfo.findUser = function(username, result) {
 
 UserInfo.auth = async function(username, password, result) {
     
-    //const match = await bcrypt.compare(password, UserInfo.password);
-    //match = password;
-
     sql.query('SELECT * FROM users WHERE username =? AND password =?', [username, password], function (err, res){
         
         if(res.length > 0){
