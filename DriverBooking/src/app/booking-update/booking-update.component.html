@@ -1,23 +1,24 @@
 <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
 <mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
 
-<div class= "img">
-  <mat-card class="example-card-two" *ngFor="let bookingup of id">
+<div class="card rounded-0">
+  <h1>Update Your Booking</h1>
+  <mat-card class="container" *ngFor="let bookingup of id">
     <mat-card-header>
       <mat-card-subtitle></mat-card-subtitle>
-      <h1>Update Your Booking</h1>
     </mat-card-header>
   
    
     <form class="update-form" (submit)="UpdateBooking(updateForm)" #updateForm="ngForm">
       <mat-error *ngIf="bookinDate?.invalid">{{getErrorMessage()}}</mat-error>
      <mat-form-field>
-    <input matInput type="date" name="bookingDate" ngModel="{{bookingup.bookingDate | date: dd/MM/yyyy }}" placeholder="Your Prevoius date {{bookingup.bookingDate | date:MM//dd/yyyy}}" #bookingDate="ngModel"/>
+    <input matInput type="date" name="bookingDate" ngModel="{{bookingup.bookingDate | date: dd/MM/yyyy }}" placeholder="Prevoius date {{bookingup.bookingDate | date:MM//dd/yyyy}}" #bookingDate="ngModel"/>
     </mat-form-field>
+    <br>
     <br>
     <mat-form-field>
         <mat-label>Change the Start time</mat-label>
-          <mat-select [(value)]="start" ngModel="{{bookingup.startTime}}" name="startTime" class="select">
+          <mat-select [(value)]="start" ngModel="{{bookingup.startTime}}" name="startTime" class="select" type="text">
             <mat-option></mat-option>
             <mat-option value="9:00">9:00</mat-option>
             <mat-option value="10:00">10:00</mat-option>
@@ -27,6 +28,7 @@
             <mat-option value="15:00">15:00</mat-option>
           </mat-select>
         </mat-form-field>
+        <br>
         <br>
         <mat-form-field>
             <mat-label>Change the End time</mat-label>
@@ -43,7 +45,10 @@
             </mat-form-field>
             <br>
             <br>
+            <button mat-raised-button color="accent" [disabled]="!updateForm.form.valid" class="Updatebtn">Update booking</button>
+            <br>
 
-            <button mat-raised-button color="accent" [disabled]="!updateForm.form.valid">Update booking</button>
-     </form>
+          </form>
+      </mat-card>>
+  </div> 
   
