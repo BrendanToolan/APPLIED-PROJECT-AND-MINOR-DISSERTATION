@@ -34,16 +34,6 @@ BookingInfo.getAllBookingInfo = function (result) {
     });
 };
 
-BookingInfo.DeleteBooking = function (req, result) {
-    sql.query('DELETE from booking where bid = ?',[req.params.bid], function (err, res) {
-        if (!err) 
-        res.send('Deleted');
-        else 
-        console.log(err);
-    });
-};
-
-
 BookingInfo.update = function (updateBooking, bid, result) {
     sql.query("UPDATE booking SET ? where bid = ?",[updateBooking, bid], function (err, res) {
         if (err) {

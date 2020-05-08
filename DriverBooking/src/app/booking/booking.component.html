@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label>Book a Date</label>
-                <input  type="date" name="bookingdate" ngModel required="true" placeholder="Enter Booking Date" #bookingDate="ngModel"/>
+                <input  type="date" name="bookingdate" ngModel required="true" placeholder="Enter Booking Date" #bookingDate="ngModel" ng-mode-options="{timezone: 'UTC'}"/>
             </div>
             <mat-form-field>
               <mat-label>Select a Start time</mat-label>

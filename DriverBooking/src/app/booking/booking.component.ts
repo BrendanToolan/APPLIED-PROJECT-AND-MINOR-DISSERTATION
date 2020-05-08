@@ -60,7 +60,7 @@ export class BookingComponent implements OnInit {
           console.log(res);
           this.int = res;
           this.id = res;
-          console.log("yo = "+ this.id)
+          console.log("id = "+ this.id)
         },
         err => console.log(err)
       )

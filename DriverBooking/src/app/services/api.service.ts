@@ -49,11 +49,6 @@ export class ApiService {
     //return this.http.get(`${this.AWS_Cloud + '/api/booking'}/${id}`);
    }
 
-  getBookingID(id: number): Observable<any> {
-    return this.http.get(`${this.Url + 'booking-update'}/${id}`);
-   // return this.http.get(`${this.AWS_Cloud + '/api/booking-update'}/${id}`);
-   }
-
   isLoggedIn(): Observable<isLoggedIn>{
     return this.http.get<isLoggedIn>(this.Url + 'Login', {withCredentials: true});
     //return this.http.get<isLoggedIn>(this.AWS_Cloud + '/api/Login', {withCredentials: true});
@@ -101,4 +96,9 @@ export class ApiService {
     //return this.http.post<Processed>(`${this.AWS_Cloud +'/api/booking-update'}/${id}`, book);
     return this.http.post<Processed>(`${this.Url +'booking-update'}/${id}`, book);
   }
+
+  getBookingID(id: number): Observable<any> {
+    return this.http.get(`${this.Url + 'booking-update'}/${id}`);
+   // return this.http.get(`${this.AWS_Cloud + '/api/booking-update'}/${id}`);
+   }
 }

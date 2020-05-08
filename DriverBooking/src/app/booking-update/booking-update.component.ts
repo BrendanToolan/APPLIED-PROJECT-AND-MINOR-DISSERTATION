@@ -42,7 +42,8 @@ export class BookingUpdateComponent implements OnInit {
     this.api.UpdateBooking(this.book[0].bid, form.value.bookingDate, form.value.startTime, form.value.endTime).subscribe(data => {
       console.log(data)
       if(data.status){
-        this.successMsg = 'Booking Successfully Updated';
+        //this.successMsg = 'Booking Successfully Updated';
+        this.router.navigate(['bookings']);
       // console.log(this.book);
       } else if(data.errorCode === 'ER_DUP_ENTRY'){
         //this.setErrorMessage('this booking already exists');

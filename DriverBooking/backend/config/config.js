@@ -7,17 +7,16 @@ var bodyParser = require('body-parser');
 var path = require('path');
 //var bcrypt = require('bcrypt');
 
-
-/*let connection = mysql.createConnection({
+/*
+let connection = mysql.createConnection({
     //LOCALHOST
-    host: '34.241.26.162',
+    host: '3.250.97.158',
     //mysql user + db
     user: 'james',
     password: 'nelly123',
     database: 'bigproject',
-
-});*/
-
+});
+*/
 //==============================================//
 //       Locally Testing server and DB
 //=============================================//
