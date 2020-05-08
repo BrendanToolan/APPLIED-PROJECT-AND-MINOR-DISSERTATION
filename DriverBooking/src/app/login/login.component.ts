@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent implements OnInit {
  
   private errorMessage;
-
+  
   constructor(private auth: AuthService, private router: Router) { }
 
   setErrorMessage(error: String){
@@ -27,13 +27,15 @@ export class LoginComponent implements OnInit {
 
   loginUser(form: NgForm) {
     this.auth.checkUserInfo(form.value.username, form.value.password).subscribe(data => {
-        console.log(data);
+        //console.log(data);
         if (data.success) { // If true navigate to home page.
+            
             this.router.navigate(['/instructors']);
             this.auth.isLogged(true); // Set client side logged in status to true.
             console.log('Success'); // Log success to console.
         } else {
             // Display error if request comes back false:
+            
             this.setErrorMessage('Not the correct information');
         }// end if else
     });

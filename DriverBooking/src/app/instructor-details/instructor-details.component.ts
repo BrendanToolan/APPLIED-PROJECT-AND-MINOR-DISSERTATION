@@ -15,6 +15,7 @@ export class InstructorDetailsComponent implements OnInit {
 
   inst: instructor ={
     Lid: 0,
+    location: '',
     name: '',
     lastName: '',
     Phonenumber: 0,

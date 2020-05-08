@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto">
@@ -20,7 +21,7 @@
               <br>
               <div class="form-group">
                 <label>Password</label>
-                <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="enter a password" #password="ngModel"/>
+                <input  type="password" name="password" ngModel required="true" placeholder="enter a password" #password="ngModel"/>
               </div>
               <button style="float: center" type="submit" [disabled]="!loginForm.form.valid" class= "loginBtn">Login</button>
             </form>

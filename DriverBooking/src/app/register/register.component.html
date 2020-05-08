@@ -1,3 +1,6 @@
+<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+
  <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto">
@@ -14,19 +17,19 @@
               <input type="text" name="username" ngModel required="true" placeholder="Enter User name" #username="ngModel"/>
               <div class="form-group">
                 <label>First Name</label>
-                <input  type="firstname" name="firstname" minlength="6" ngModel required="true" placeholder="Enter First Name" #firstname="ngModel"/>
+                <input  type="firstname" name="firstname" ngModel required="true" placeholder="Enter First Name" #firstname="ngModel"/>
               </div>
               <div class="form-group">
                 <label>Surname</label>
-                <input  type="surname" name="surname" minlength="6" ngModel required="true" placeholder="Enter Surname" #surname="ngModel"/>
+                <input  type="surname" name="surname" ngModel required="true" placeholder="Enter Surname" #surname="ngModel"/>
               </div>
               <div class="form-group">
                 <label>Phone Number</label>
-                <input  type="phoneNo" name="phoneNo" minlength="6" ngModel required="true" placeholder="Enter Phone number" #phoneNo="ngModel"/>
+                <input  type="phoneNo" name="phoneNo" ngModel required="true" placeholder="Enter Phone number" #phoneNo="ngModel"/>
               </div>
               <div class="form-group">
                 <label>Password</label>
-                <input  type="password" name="password" minlength="6" ngModel required="true" placeholder="Enter Password" #password="ngModel"/>
+                <input  type="password" name="password" ngModel required="true" placeholder="Enter Password" #password="ngModel"/>
               </div>
               
               <button style="float: center" type="submit" [disabled]="!registerForm.form.valid" class="registerbtn">Register</button>
