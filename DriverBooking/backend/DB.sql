@@ -13,21 +13,21 @@ create table location (
 	Lid int(10),
 	name varchar(10),
     NumOfDrivers int(10),
-	picture_path varchar(20) DEFAULT NULL
+	picture_path varchar(250) DEFAULT NULL
 	)Engine=InnoDB;
 
 INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
-	(101, 'Gort', 4, 'assets/1.jpg'),
+	(101, 'Gort', 4, 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Gort_-_Bridge_Street.jpg'),
 
-	(102, 'Loughrea', 4, 'assets/2.jpg'),
+	(102, 'Loughrea', 4, 'https://upload.wikimedia.org/wikipedia/en/1/1f/Loughrea_Town_Sign_-_Discover_Ireland.jpg'),
 
-    (103, 'Athenry', 4, 'assets/3.jpg'),
+    (103, 'Athenry', 4, 'https://media-cdn.tripadvisor.com/media/photo-s/0c/b5/10/25/athenry-main-street.jpg'),
     
-    (104, 'Tuam', 4, 'assets/4.jpg'),
+    (104, 'Tuam', 4, 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Tuam_High_Street_2009_09_14.jpg'),
 
-	(105, 'Oranmore', 3, 'assets/5.jpg'),
+	(105, 'Oranmore', 3, 'https://galwaybayfm.ie/wp-content/uploads/2016/03/cropped-news-oranmore.jpg'),
 
-	(106, 'Ballinsloe', 4, 'assets/6.jpg');
+	(106, 'Ballinsloe', 4, 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Society_Street.jpg');
 
 	create table instructor (
 	id int (5),
@@ -87,7 +87,7 @@ INSERT INTO location (Lid, name, NumOfDrivers, picture_path) VALUES
 	bookingDate Date,
 	startTime varchar(10),
 	endTime varchar(10),
-	CONSTRAINT booking_unique UNIQUE (bookingDate, startTime, endTime)
+	CONSTRAINT booking_unique UNIQUE (InstructorName, bookingDate, startTime, endTime)
 	)Engine=InnoDB;
 
 		INSERT INTO booking (bid, InstructorName, email, bookingDate, startTime, endTime) VALUES
