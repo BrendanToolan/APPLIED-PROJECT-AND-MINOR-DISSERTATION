@@ -53,7 +53,6 @@ export class AuthService {
         .subscribe(
           res => console.log(res),
           err => console.log(err)
-
         )
     }
   /* 

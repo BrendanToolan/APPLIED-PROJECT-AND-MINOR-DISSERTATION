@@ -15,8 +15,6 @@ let UsrLogin = function(user){
 
 UsrLogin.auth = async function(username, password, result) {
     
-    //const match = await bcrypt.compare(password, UserInfo.password);
-    //match = password;
 
     sql.query('SELECT * FROM users WHERE username =? AND password =?', [username, password], function (err, res){
         

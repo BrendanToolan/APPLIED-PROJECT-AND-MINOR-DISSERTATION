@@ -1,6 +1,6 @@
 // MySQL Server connection parameters:
 let mysql = require('mysql');
-//var mysql = require('mysql');
+
 var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
@@ -27,6 +27,7 @@ let connection = mysql.createConnection({
     // MySQL user + database
     user: 'root',
     password: '',
+    password: 'RumH@m96',
     database: 'bigproject'
 });
 

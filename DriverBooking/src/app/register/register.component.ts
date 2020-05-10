@@ -23,7 +23,7 @@ export class RegisterPageComponent implements OnInit {
 
   }
 
-  setErrorMessage(error: String) {
+setErrorMessage(error: String) {
     this.errorMessage = error;
 }
 
