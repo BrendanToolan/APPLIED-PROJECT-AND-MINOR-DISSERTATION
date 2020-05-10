@@ -23,12 +23,12 @@ export class AuthService {
   }
 
   //needed for the cloud
-  //AWS_Cloud_login: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/Login';
-  //AWS_Cloud_reg: string = 'http://ec2-34-241-26-162.eu-west-1.compute.amazonaws.com:8081/api/register';
+  AWS_Cloud_login: string = 'http://ec2-34-241-200-104.eu-west-1.compute.amazonaws.com:8081/api/Login';
+  AWS_Cloud_reg: string = 'http://ec2-34-241-200-104.eu-west-1.compute.amazonaws.com:8081/api/register';
    
     //needed locally
-  private _loginUrl = "http://localhost:8081/api/Login";
-  private _regUrl = "http://localhost:8081/api/register"
+  //private _loginUrl = "http://localhost:8081/api/Login";
+  //private _regUrl = "http://localhost:8081/api/register"
 
     constructor(private http: HttpClient, private _router: Router){ }
 
@@ -42,21 +42,21 @@ export class AuthService {
             password: password
         };
         //needed for the cloud
-        //return this.http.post<User>(this.AWS_Cloud_reg, user);
+        return this.http.post<Processed>(this.AWS_Cloud_reg, user);
        //needed for locally
-        return this.http.post<Processed>(this._regUrl, user);
+        //return this.http.post<Processed>(this._regUrl, user);
     }
 
     //needed for the cloud
-   /* loginUser(user){
+    loginUser(user){
       return this.http.post<any>(this.AWS_Cloud_login, user)
         .subscribe(
           res => console.log(res),
           err => console.log(err)
 
         )
-    }*/
-
+    }
+  /* 
     //needed for locally
     loginUser(user){
       return this.http.post<any>(this._loginUrl, user)
@@ -66,7 +66,7 @@ export class AuthService {
 
         )
     }
-
+*/
     private loggedInStatus = false;
 
     isLogged(value: boolean){
@@ -78,23 +78,23 @@ export class AuthService {
     }
 
     //used for the cloud
-    /*checkUserInfo(username, password) {
+    checkUserInfo(username, password) {
       console.log(username, password);
       return this.http.post<AuthData>(this.AWS_Cloud_login ,{
           username,
           password
       }, {withCredentials: true});
-  }// End function */
+  }// End function 
 
   //used for locally
-  checkUserInfo(username, password) {
+ /* checkUserInfo(username, password) {
     console.log(username, password);
     return this.http.post<AuthData>(this._loginUrl ,{
         username,
         password
     }, {withCredentials: true});
 }// End function 
-
+*/
 
 
 }
